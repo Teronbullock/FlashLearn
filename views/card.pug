@@ -1,0 +1,25 @@
+extends layout/layout
+block content
+  .l-flashCard
+    .l-flashCard__container
+      .card.card--flashCard
+        .card__aside--flashCard
+        .card__content--flashCard 
+          .card__header
+            h3.card__title--flashCard.card--title-small= text
+          .card__body.l-flashCard__body  
+            p.card__copy
+            if hint
+              p.card__copy
+                i Hint: #{hint}
+          .card__footer
+            .card__action.card--flex-center   
+              a(
+                class='btn btn--callout btn--mx1'
+                href=`${id}?side=${sideToShow}`
+              )= sideToShowDisplay
+              br
+              a(
+                class='btn btn--green btn--mx1'
+                href='/cards'
+              ) Next card

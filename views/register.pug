@@ -1,0 +1,19 @@
+extends layout/layout
+block content
+  section.form__container
+    .form
+      .form__header
+        h2.form__title Sign up
+      .form__wrapper
+        form.form__body(method='POST', action='/register')
+          label.form__label(for='username') Username:
+          input.form__input(type='text', placeholder='bobby123' name='username' required)
+          label.form__label(for='email') Email:
+          input.form__input(type='email', placeholder='user@flashcard' name='email' required)
+          label.form__label(for='password') Password:
+          input.form__input(type='password', placeholder='●●●●●●●●' name='password' required)
+          label.form__label(for='confirmPassword') Confirm Password:
+          input.form__input(type='password', placeholder='●●●●●●●●' name='confirmPassword' required)
+          .form__action
+            button.btn.btn--form(type='submit') Sign up
+          

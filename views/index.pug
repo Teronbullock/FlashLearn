@@ -1,0 +1,55 @@
+extends layout/layout
+block content
+  section.l-hero
+    .l-hero__container
+      .card.card--img-right
+        .card__aside
+          img.img.img--hero(src='/static/img/hero_img.png')
+        .card__content
+          .card__header
+            h2.card__title.card__title--hero
+              | Quick, Easy, Study in a Flash!
+          .card__body
+            p.card__copy.card__copy--hero 
+              | FlashCard is an app the makes studying online a breeze. Add your
+              | questions, answer and then begin studying. 
+            .card__action
+              a.btn.btn--callout.btn--large(href='/register') Sign up
+  section.l-feature
+    .l-feature__container
+      .card.card--img-left
+        .card__aside
+          img(
+            class='img',
+            src='https://cdn.pixabay.com/photo/2015/05/31/13/45/young-791849_960_720.jpg'
+          )
+        .card__content
+          .card__header
+            h2.card__title Studing Made Easy
+            .card__img
+              img.card--icon(
+                src='https://www.flaticon.com/svg/static/icons/svg/2972/2972117.svg'
+              )
+          .card__body   
+            p.card__copy 
+              | Flashcard allows you to create your own flashcards to study from. 
+              | Sign-up is free and is easy to get started.    
+      .card.card--img-right
+        .card__aside
+          img(
+            class='img',
+            src='https://cdn.pixabay.com/photo/2017/08/01/00/38/laptop-2562325_960_720.jpg'
+          )
+        .card__content
+          .card__header
+            h2.card__title Save Time 
+            .card__img
+              img.card--icon(
+                src='https://www.flaticon.com/svg/static/icons/svg/2972/2972497.svg'
+              )
+          .card__body   
+            p.card__copy 
+              | Spend more time studing and lease time writing out your notes.
+              | 
+          .card__footer
+            .card__action   

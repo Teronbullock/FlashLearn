@@ -1,0 +1,17 @@
+extends layout/layout
+block content
+  .form__container
+    .form
+      .form__header
+        h2.form__title Add Card
+      .form__wrapper
+        form.form__body(method='POST', action='/add_card')
+          label.form__label(for='question') Question:
+          input.form__input(type='text', placeholder='What is ...' name='question' required)
+          label.form__label(for='hint') Hint:
+          input.form__input(type='text', placeholder='Hint' name='hint')
+          label.form__label(for='answer') Answer:
+          input.form__input(type='text', placeholder='Answer' name='answer' required)
+          .form__action
+            button.btn.btn--form(type='submit') Add Card
+          

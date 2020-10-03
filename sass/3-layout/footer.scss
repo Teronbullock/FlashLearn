@@ -1,0 +1,18 @@
+/* ================================= 
+  footer
+==================================== */
+
+.l-footer {
+  padding: 1rem;
+  color: white;
+  background-color: #264460;
+  width: 100%;
+
+  // @include mq(m) {
+   
+  // }
+
+  p {
+    font-size: .75rem
+  }
+}

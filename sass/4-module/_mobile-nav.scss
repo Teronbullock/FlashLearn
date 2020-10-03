@@ -1,0 +1,56 @@
+/* ================================= 
+ Mobile nav
+==================================== */
+.mobile-nav {
+  &__item,
+  &__link {
+    display: block;
+  }
+
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 0;
+  z-index: 100;
+  background-color: #fff;
+  transition: 0.3s;
+  overflow-x: hidden;
+  text-align: center;
+
+  @include mq(m) {
+    display: none;
+  }
+
+  &__container {
+    margin-top: 4rem;
+    padding: 1rem;
+    width: 100%;
+  }
+
+  &__list {
+    margin-bottom: 2rem;
+  }
+
+  &__item {
+    border-bottom: 1px solid;
+    padding: 1rem 0;
+  }
+
+  &__link {
+    transition: 0.3s;
+    text-decoration: none;
+    cursor: pointer;
+    color: #000;
+  }
+
+  &--remove-border {
+    border: none;
+  }
+
+}
+
+  

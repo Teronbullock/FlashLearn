@@ -1,0 +1,38 @@
+/* ================================= 
+  Nav
+==================================== */
+.nav {
+  display: none;
+
+  @include mq(m) {
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  &__list {
+    align-items: center;
+    list-style-type: none;
+    color: $color-highlight;
+    margin: 0;
+    padding-inline-start: 0;
+  }
+
+  &__item {
+    margin: 0 1rem;
+  }
+
+  &__link {
+    color: #fff;
+    
+  }
+
+  // -- modifier --
+
+  &--flex {
+    display: flex;
+    justify-content: flex-end;
+
+  }
+
+}

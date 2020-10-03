@@ -1,0 +1,31 @@
+/* ================================= 
+  List
+==================================== */
+.list {
+  display: none;
+    margin: 0;
+    padding: 0;
+
+    @include mq(m) {  
+      display: block;
+    }
+    
+  &__container {
+    display: flex; 
+    justify-content: center;
+
+    @include mq(m) {  
+      flex-direction: row;
+      align-items: center;
+    }  
+  }
+
+  &__item {
+    margin: 0 1rem;
+  }
+
+  &__link {
+    color: #fff;
+  }
+
+}

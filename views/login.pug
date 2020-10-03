@@ -1,0 +1,14 @@
+extends layout/layout
+block content
+  section.form__container
+    .form
+      .form__header
+        h2.form__title Login
+      .form__wrapper
+        form.form__body(method='post' action='/login')
+          label.form__label(for='username') Username:
+          input.form__input(type='text' name='username')
+          label.form__label(for='password') password:
+          input.form__input(type='password' name='password' )
+          .form__action
+            button.btn.btn--form(type='submit') Login

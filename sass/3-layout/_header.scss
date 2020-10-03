@@ -1,0 +1,35 @@
+/* ================================= 
+  Header
+==================================== */
+.l-header {
+  &__container,
+  &--fixed-top,
+  &--flex-cen {
+    display: flex;
+  }
+
+} 
+
+.l-header {
+  position: relative;
+  padding: 1.125rem 1rem;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: rgba(12, 20, 29, 0.90);
+
+  @include mq(m) {  
+    background-color: rgba(12, 20, 29, 0.75);
+  }
+
+  &__container {
+    justify-content: center;
+    @include mq(m) {   
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }  
+  }
+
+}

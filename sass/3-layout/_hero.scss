@@ -1,0 +1,26 @@
+/* ================================= 
+  Hero
+==================================== */
+.l-hero {
+    min-height: 100vh;
+    color: #fff;
+    background-color: rgb(0 0 0 / 0%);
+    padding: .5rem;
+
+  @include mq(m) {
+    height: 400px;
+  }  
+
+  &__container {
+    
+    @include mq(m) {
+      max-width: 1000px;
+      margin-top: 8rem;
+      margin-right: auto;
+      margin-left: auto;
+      padding: 0;
+    }
+  
+  }
+
+}

@@ -1,0 +1,14 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset='utf-8')
+    title Flash Cards
+    meta(name='description', content='Flash Cards')
+    meta(name='viewport', content='width=device-width', initial-scale=1.0 )
+    link(rel='stylesheet', href='/static/css/style.css')
+    script(src='/static/js/nav-toggle-script.js' async)
+  body
+    include ../includes/header
+    .l-content-section.wrapper
+      block content
+    include ../includes/footer

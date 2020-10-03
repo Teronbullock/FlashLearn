@@ -1,0 +1,82 @@
+/* ================================= 
+  Namecard
+==================================== */
+.namecard {
+  background-color: #F5F3ED;
+  max-width: 400px;
+  margin: auto;
+  color: #727C85;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.namecard-hello {
+  display: -ms-flex;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  border-bottom: solid 2px #EDEAD9;
+  padding: 5px 20px;
+  text-align: left;
+}
+
+.namecard-greeting {
+  font-size: 1em;
+  font-weight: 400;
+  width: 50%;
+}
+
+.namecard-form {
+  padding-top: 15px;
+}
+
+.namecard-prompt {
+  font-size: 26px;
+  font-weight: 400;
+  display: block;
+  padding-top: 45px;
+}
+
+.namecard-name {
+  display: block;
+  margin: 20px auto;
+}
+
+.namecard-submit {
+  margin-top: 50px;
+  background-color: #fff;
+  border: 2px #D64226 solid;
+  font-size: 1em;
+  padding: 8px 10px;
+  color: #D64226;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+
+.namecard-submit:hover {
+  background-color: #D64226;
+  color: #fff;
+  cursor: pointer;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.namecard-exit {
+  width: 50%;
+  text-align: right;
+}
+
+.namecard-exit button {
+  background-color: #F5F3ED;
+  border: none;
+  margin-top: 2px;
+  outline: none;
+}
+
+.namecard-exit button:hover {
+  cursor: pointer;
+}
