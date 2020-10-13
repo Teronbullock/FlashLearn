@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node app.js",
     "sass": "sass --watch ./sass/style.scss:./public/css/style.css",
-    "start-nodemon": "nodemon app.js",
-    "start-dev": "concurrently \"npm run start-nodemon\" \"npm run sass\" "
+    "nodemon": "nodemon app.js",
+    "dev": "concurrently \"npm run nodemon\" \"npm run sass\" "
   },
   "keywords": [],
   "author": "Teron Bullock",

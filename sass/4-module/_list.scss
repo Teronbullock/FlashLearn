@@ -3,29 +3,29 @@
 ==================================== */
 .list {
   display: none;
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 
-    @include mq(m) {  
-      display: block;
-    }
-    
-  &__container {
-    display: flex; 
-    justify-content: center;
-
-    @include mq(m) {  
-      flex-direction: row;
-      align-items: center;
-    }  
+  @include mq(m) {  
+    width: 240px;
+    display: block;
   }
+}
 
-  &__item {
-    margin: 0 1rem;
-  }
+.list__container {
+  display: flex; 
+  justify-content: center;
 
-  &__link {
-    color: #fff;
-  }
+  @include mq(m) {  
+    flex-direction: row;
+    align-items: center;
+  }  
+}
 
+.list__item {
+  margin: 0 1rem;
+}
+
+.list__link {
+  color: #fff;
 }

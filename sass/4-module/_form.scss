@@ -7,64 +7,69 @@
   margin: 0rem auto 4rem;
   padding: 1rem;
   color: #fff;
-  background-color: rgb(0 0 0 / 58%);
+  background-color: rgb(14, 25, 35, 0.8);
   border-radius: 15px;
   border: solid 3px #fff;
 
   @include mq(m) {
     width: 60%;
     max-width: 900px;
+    height: 575px;
     margin: 3rem auto 1rem;
     padding: 1rem;
   }
+}
 
-  &__container {
+.form__container {
+  padding: 2rem .5rem;
+  margin-bottom: 3.5rem;
+
+  @include mq(m) {
     margin-top: 3rem;
-    padding: 2rem .5rem;
+  }
+}
+
+.form__header {
+  width: 100%;
+  text-align: center;
+}
+
+.form__title {
+  margin: 1rem 0;
+}
+
+.form__body {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem auto;
+
+  @include mq(m) {
+    width: 80%;
   }
 
-  &__header {
-    width: 100%;
-    text-align: center;
+}
+
+.form__input {
+  margin: .25rem 0 1.25rem;
+  padding: 9px;
+  color: #fff;
+  text-align: center;
+  background-color: rgb(255 255 255 / 0%);
+  border-radius: 5px;
+  border: 2px solid #fff;
+  outline: none;
+
+  @include mq(m) {
+    margin: .25rem 0 1.5rem;
+    padding: 12px;
   }
 
-  &__title {
-    margin: 1rem 0;
-  }
+}
 
-  &__body {
-    display: flex;
-    flex-direction: column;
-    margin: 1rem auto;
+.form__action {
+  margin-top: .5rem;
 
-    @include mq(m) {
-      width: 80%;
-    }
-
-  }
-
-  &__input {
-    margin: .25rem 0 1.25rem;
-    padding: 9px;
-    color: #fff;
-    text-align: center;
-    background-color: rgb(255 255 255 / 0%);
-    border-radius: 5px;
-    border: 2px solid #fff;
-    outline: none;
-
-    @include mq(m) {
-      margin: .25rem 0 1.5rem;
-      padding: 12px;
-    }
-
-  }
-
-  &__action {
-    margin-top: .5rem;
-
-    @include mq(m) {
-      margin-top: 2rem; 
-    }
+  @include mq(m) {
+    margin-top: 2rem; 
   }
 }

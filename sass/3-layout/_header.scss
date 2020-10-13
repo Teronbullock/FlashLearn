@@ -1,18 +1,17 @@
 /* ================================= 
   Header
 ==================================== */
-.l-header {
-  &__container,
-  &--fixed-top,
-  &--flex-cen {
-    display: flex;
-  }
-
+.l-header__container,
+.l-header--fixed-top,
+.l-header--flex-cen {
+  display: flex;
 } 
 
 .l-header {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  height: 70px;
   position: relative;
-  padding: 1.125rem 1rem;
   top: 0;
   right: 0;
   left: 0;
@@ -22,14 +21,15 @@
   @include mq(m) {  
     background-color: rgba(12, 20, 29, 0.75);
   }
+}
 
-  &__container {
-    justify-content: center;
-    @include mq(m) {   
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-    }  
-  }
-
+.l-header__container {
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  
+  @include mq(m) {   
+    flex-direction: row;
+    justify-content: space-between;
+  }  
 }

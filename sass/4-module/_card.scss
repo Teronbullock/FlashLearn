@@ -13,13 +13,11 @@
   @include mq(m) {
     width: 50%; 
   } 
-
 }
 
 .card__aside--flashCard,
 .card__content--flashCard {
   width: 100%;
-
 }
 
 .card__title--hero,
@@ -29,7 +27,6 @@
   @include mq(sm) {
     margin: 0 0 3rem;
   } 
-
 }
 
 .card__header, .card__body {
@@ -51,99 +48,102 @@
   @include mq(m) {
     text-align: left;
   }
+}
 
-  &__content {
-    padding: 1rem;
+.card__content {
+  padding: 1rem;
+}
+
+.card__content--flashCard {
+  padding-bottom: 1.5rem;
+}
+
+.card__title {
+  font-size: 1.75rem;  
+}
+
+.card__copy {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.card__footer {
+width: 100%;
+}
+
+//  -- Modifiers --
+
+.card__title--hero {
+  font-size: 1.5rem;
+  
+  @include mq(m) {
+    margin: 4rem 0 2rem;
   }
+}
 
-  &__title {
-    font-size: 1.75rem;  
+.card__copy--hero {
+  line-height: 1.5;
+  text-align: left;
+}
+
+.card--img-left {
+  @include mq(m) {
+    flex-direction: row;
   }
+}
 
-  &__copy {
-    font-size: 1rem;
-    line-height: 1.7;
+.card--img-right {
+  @include mq(m) {
+    flex-direction: row-reverse;
   }
+}
 
-  &__footer {
-  width: 100%;
+.card--flex-center {
+  justify-content: center;
+}
+
+.card--title-small {
+  font-size: 1.25rem;
+}
+
+.card--icon {
+  height: 40px;
+  width: 40px;
+}
+
+.card--flashCard {
+  background-color: #fff;
+  color: #000;
+  border-radius: 20px;
+  line-height: 1.5;
+  
+  @include mq(m) {
+    max-width: 700px;
+    height: 500px;
   }
+}
 
-  //  -- Modifiers --
-
-  &__title--hero {
-    font-size: 1.5rem;
-    
-    @include mq(m) {
-      margin: 4rem 0 2rem;
-    }
+.card__aside--flashCard {
+  background: #727C85 url('../img/zach-lucero-unsplash.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 225px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  
+  @include mq(m) { 
+    height: 250px;
   }
+}
 
-  &__copy--hero {
-    line-height: 1.5;
-    text-align: left;
-  }
-
-  &--img-left {
-    @include mq(m) {
-      flex-direction: row;
-    }
-  }
-
-  &--img-right {
-    @include mq(m) {
-      flex-direction: row-reverse;
-    }
-  }
-
-  &--flex-center {
-    justify-content: center;
-  }
-
-  &--title-small {
-    font-size: 1.25rem;
-  }
-
-  &--icon {
-    height: 40px;
-    width: 40px;
-  }
-
-  &--flashCard {
-    background-color: #fff;
-    color: #000;
-    border-radius: 20px;
-    line-height: 1.5;
-    
-    @include mq(m) {
-      max-width: 700px;
-      height: 500px;
-    }
-  }
-
-  &__aside--flashCard {
-    background: #727C85 url('../img/zach-lucero-unsplash.jpg') no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 225px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    
-    @include mq(m) { 
-      height: 250px;
-    }
-  }
-
-  &__title--flashCard {
-    border-top: 2px solid #F5F3ED;
-    border-bottom: 2px solid rgba(0,0,0,.05);
-    color: #727C85;
-    padding: 10px;
-    letter-spacing: 5px;
-    background-color: #F5F3ED;
-    text-transform: uppercase;
-    font-size: 16px;
-    font-weight: 400;
-  }
-
+.card__title--flashCard {
+  border-top: 2px solid #F5F3ED;
+  border-bottom: 2px solid rgba(0,0,0,.05);
+  color: #727C85;
+  padding: 10px;
+  letter-spacing: 5px;
+  background-color: #F5F3ED;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 400;
 }

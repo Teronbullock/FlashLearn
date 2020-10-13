@@ -17,7 +17,11 @@ module.exports = router.post('/', (req, res, next) => {
         next(err);
       } else {
         req.session.userId = user.userID;
-        res.redirect('/welcome');
+        
+        req.session.save(() => {
+          res.redirect('/welcome');
+        });
+        
       }
     });
   

@@ -10,17 +10,15 @@
   @include mq(m) {
     height: 400px;
   }  
+}
 
-  &__container {
+.l-hero__container {
     
-    @include mq(m) {
-      max-width: 1000px;
-      margin-top: 8rem;
-      margin-right: auto;
-      margin-left: auto;
-      padding: 0;
-    }
-  
+  @include mq(m) {
+    max-width: 1000px;
+    margin-top: 8rem;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0;
   }
-
 }

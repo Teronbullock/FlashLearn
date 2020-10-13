@@ -9,30 +9,29 @@
     width: 50%;
     margin: 0 auto;
   }
+}
 
-  &__list {
-    align-items: center;
-    list-style-type: none;
-    color: $color-highlight;
-    margin: 0;
-    padding-inline-start: 0;
-  }
+.nav__list {
+  align-items: center;
+  list-style-type: none;
+  color: $color-highlight;
+  margin: 0;
+  padding-inline-start: 0;
+}
 
-  &__item {
-    margin: 0 1rem;
-  }
+.nav__item {
+  margin: 0 1rem;
+}
 
-  &__link {
-    color: #fff;
-    
-  }
+.nav__link {
+  color: #fff;
+  
+}
 
-  // -- modifier --
+// -- modifier --
 
-  &--flex {
-    display: flex;
-    justify-content: flex-end;
-
-  }
+.nav--flex {
+  display: flex;
+  justify-content: flex-end;
 
 }

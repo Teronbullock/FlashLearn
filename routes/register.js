@@ -37,8 +37,8 @@ module.exports = router.post('/', (req, res, next) => {
       (async () => {
         try {
           const user = await User.create(formData);
-          req.session.userId = user.usedID; 
-          res.redirect('/welcome');
+         
+          res.redirect('/');
         } catch (error) {
           next(error);
         }
