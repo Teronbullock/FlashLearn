@@ -4,13 +4,11 @@ let nav = document.getElementById("js-mobile-nav");
 /* Open when someone clicks on #nav-toggle-btn */
 function toggleNav() { 
   if (nav.style.width == "100%" ) {
-    //document.getElementById("nav").style.width = "0%";
     document.getElementById("js-btn--mobile-toggle").classList.remove("change");
     nav.removeAttribute("style");
   } else  {
     nav.style.width = "100%";
     document.getElementById("js-btn--mobile-toggle").classList.add("change");
-    
   }
 }
 
@@ -18,7 +16,6 @@ function toggleNav() {
 function closeNav() {
   document.getElementById("js-btn--mobile-toggle").classList.remove("change");
   if (window.screen.width <= 700) {
-    //document.getElementById("nav").style.width = "0%";
     nav.removeAttribute("style");
     
   } 

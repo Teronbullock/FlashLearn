@@ -803,7 +803,7 @@ ul {
 }
 
 .btn--form {
-  background-color: #2B7FBD;
+  background-color: #264460;
 }
 
 .btn--large {
@@ -824,8 +824,9 @@ ul {
   position: absolute;
   top: 12px;
   right: 20px;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: #0f1924;
   border: none;
+  border-radius: 3px;
   cursor: pointer;
   outline: none;
   z-index: 500;
