@@ -8,6 +8,7 @@ require('dotenv').config();
 
 const app = express();
 
+//
 const myStore = new SequlizeStore({
   db: db,
 });

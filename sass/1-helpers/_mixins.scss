@@ -2,6 +2,23 @@
   Mixins
 ==================================== */
 
+/* Breakpoints
+   ========================================================================== */
+
+// Small devices
+$break-xs: 374px;
+// Small devices
+$break-sm: 375px;
+// Medium devices
+$break-m: 768px;
+// Large devices
+$break-l: 992px;
+// Extra large devices
+$break-xl: 1200px;
+// Retna large devices
+$break-xxl: 1440px;
+
+
 /* ================================= 
   Media Queries
 ==================================== */
@@ -26,9 +43,9 @@
     @media (min-width: $break-xl) {
       @content;
     }
-  } @else if $break == 'ret' {
-    @media (min-width: $break-ret) {
+  } @else if $break == 'xxl' {
+    @media (min-width: $break-xxl) {
       @content;
     }
-  }
+  } 
 }

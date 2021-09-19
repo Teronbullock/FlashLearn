@@ -12,11 +12,11 @@
    ========================================================================== */
 /* Font-size
    ========================================================================== */
-/* Breakpoints
-   ========================================================================== */
 /* ================================= 
   Mixins
 ==================================== */
+/* Breakpoints
+   ========================================================================== */
 /* ================================= 
   Media Queries
 ==================================== */
@@ -371,8 +371,7 @@ template {
 /* ================================= 
   Global
 ==================================== */
-/* Base
-   ========================================================================== */
+/* Base ========================================================================== */
 * {
   box-sizing: border-box;
 }
@@ -388,8 +387,6 @@ body {
   position: relative;
   width: 100%;
   font-family: averta, avenir w02, avenir, Helvetica, Arial, sans-serif;
-  background: url("../img/flashcardBG.jpg") no-repeat;
-  background-size: cover;
 }
 
 h1 {
@@ -425,22 +422,18 @@ ul {
   list-style-type: none;
 }
 
-/* Site-title
-   ========================================================================= */
-.site-title {
-  margin: 0rem;
-  font-family: "Courgette", cursive;
-  font-size: 1.75rem;
+/* ================================= 
+  site-wrapper
+==================================== */
+.site-wrapper {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1200px;
 }
-@media (min-width: 768px) {
-  .site-title {
-    margin: 0;
-    width: 180px;
-    font-size: 2.25rem;
+@media (min-width: 1440px) {
+  .site-wrapper {
+    max-width: 1400px;
   }
-}
-.site-title__link {
-  color: #fff;
 }
 
 /* ================================= 
@@ -488,23 +481,31 @@ ul {
   Hero
 ==================================== */
 .l-hero {
-  min-height: 100vh;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0);
   padding: 0.5rem;
+  height: 100vh;
+  color: #fff;
+  background: url("../img/nathan-dumlao-PgFA6e3GOaU-unsplash.jpg") no-repeat 50% 50%;
+  background-size: cover;
+  position: relative;
 }
 @media (min-width: 768px) {
   .l-hero {
-    height: 400px;
+    height: 744px;
   }
+}
+.l-hero::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 @media (min-width: 768px) {
   .l-hero__container {
-    max-width: 1000px;
     margin-top: 8rem;
-    margin-right: auto;
-    margin-left: auto;
     padding: 0;
   }
 }
@@ -530,24 +531,6 @@ ul {
   background-color: #fff;
   margin-left: auto;
   margin-right: auto;
-}
-
-/* ================================= 
-  Wrappers
-==================================== */
-.wrapper {
-  margin-right: auto;
-  margin-left: auto;
-  max-width: 1200px;
-}
-
-.wrapper--site {
-  padding-right: 1rem;
-  padding-left: 1rem;
-}
-
-.wrapper--card {
-  margin-top: 10rem;
 }
 
 /* ================================= 
@@ -606,6 +589,24 @@ ul {
 /* ================================= 
   4. Module
 ==================================== */
+/* Site-title ========================================================================= */
+.site-title {
+  margin: 0rem;
+  font-family: "Courgette", cursive;
+  font-size: 1.75rem;
+}
+@media (min-width: 768px) {
+  .site-title {
+    margin: 0;
+    width: 180px;
+    font-size: 2.25rem;
+  }
+}
+
+.site-title__link {
+  color: #fff;
+}
+
 /* ================================= 
   Card
 ==================================== */
@@ -661,6 +662,10 @@ ul {
   .card {
     text-align: left;
   }
+}
+
+.l-feature .card {
+  margin-top: 7rem;
 }
 
 .card__content {

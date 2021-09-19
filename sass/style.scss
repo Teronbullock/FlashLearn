@@ -22,7 +22,6 @@
 @import '3-layout/hero';
 @import '3-layout/footer';
 @import '3-layout/feature';
-@import '3-layout/wrappers';
 @import '3-layout/welcome';
 @import '3-layout/flashCard';
 @import '3-layout/error';
@@ -30,6 +29,7 @@
 /* ================================= 
   4. Module
 ==================================== */
+@import '4-module/site-title';
 @import '4-module/card';
 @import '4-module/btn';
 @import '4-module/namecard';

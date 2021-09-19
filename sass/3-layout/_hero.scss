@@ -2,23 +2,33 @@
   Hero
 ==================================== */
 .l-hero {
-    min-height: 100vh;
-    color: #fff;
-    background-color: rgb(0 0 0 / 0%);
-    padding: .5rem;
+  padding: .5rem;
+  height: 100vh;
+  color: #fff;
+  background: url("../img/nathan-dumlao-PgFA6e3GOaU-unsplash.jpg") no-repeat 50% 50%;
+  background-size: cover;
+  position: relative;
 
   @include mq(m) {
-    height: 400px;
-  }  
+    height: 744px;
+  }
+  
+  &::before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  
 }
 
 .l-hero__container {
     
   @include mq(m) {
-    max-width: 1000px;
     margin-top: 8rem;
-    margin-right: auto;
-    margin-left: auto;
     padding: 0;
   }
 }

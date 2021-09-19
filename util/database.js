@@ -1,7 +1,9 @@
 const { Sequelize } = require('sequelize');
 require('dotenv').config();
 
-module.exports = new Sequelize(`${process.env.DATABASE_URL}`, {
+let database = process.env.DATABASE_URL;
+
+module.exports = new Sequelize( database, {
   logging: false,
   storage: './session.postgres',
   pool: {

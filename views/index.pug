@@ -1,10 +1,9 @@
 extends layout/layout
 block content
   section.l-hero
-    .l-hero__container
+    .l-hero__container.site-wrapper
       .card.card--img-right
         .card__aside
-          img.img.img--hero(src='/static/img/hero_img.png')
         .card__content
           .card__header
             h2.card__title.card__title--hero
@@ -15,7 +14,7 @@ block content
               | questions, answer and then begin studying. 
             .card__action
               a.btn.btn--callout.btn--large(href='/register') Sign up
-  section.l-feature
+  section.l-feature.site-wrapper
     .l-feature__container
       .card.card--img-left
         .card__aside
