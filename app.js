@@ -4,7 +4,8 @@ const db = require('./db/database');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const methodOverride = require('method-override');
-
+const helmet = require('helmet');
+const compression = require('compression');
 
 require('dotenv').config();
 
@@ -13,6 +14,8 @@ const myStore = new SequelizeStore({
   db: db,
 });
 
+app.use(helmet());
+app.use(compression());
 app.use(methodOverride('_method'));
 
 // session middleware
@@ -31,6 +34,7 @@ app.use((req, res, next) => {
   res.locals.currentUser = req.session.userID;
   next();
 });
+
 
 
 app.use(bodyParser.urlencoded({ extended: false }));

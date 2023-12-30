@@ -20,18 +20,22 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "body-parser": "^1.20.2",
+    "compression": "^1.7.4",
     "connect-session-sequelize": "^7.0.3",
     "dotenv": "^8.2.0",
-    "express": "^4.15.2",
+    "express": "^4.18.2",
     "express-session": "^1.17.1",
+    "helmet": "^7.1.0",
     "method-override": "^3.0.0",
     "pg": "^8.11.3",
     "pg-hstore": "^2.3.3",
     "pug": "^3.0.2",
-    "sequelize": "^6.3.4"
+    "sequelize": "^6.3.4",
+    "serverless-http": "^3.2.0"
   },
   "devDependencies": {
     "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
     "gulp-cli": "^2.3.0",
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.1.0",

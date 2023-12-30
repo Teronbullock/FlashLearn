@@ -2,6 +2,7 @@ const { src, dest, series, watch, parallel } = require('gulp');
 const terser = require('gulp-terser');
 const rename = require('gulp-rename');
 const sass = require('gulp-sass')(require('sass'));
+const cleanCSS = require('gulp-clean-css');
 
 
 function minifyJS() {
@@ -15,6 +16,8 @@ function minifyJS() {
 function compileSass() {
   return src('src/sass/**/*.scss')
     .pipe(sass())
+    .pipe(cleanCSS())
+    .pipe(rename({ suffix: '.min' }))
     .pipe(dest('public/css'));
 }
 
