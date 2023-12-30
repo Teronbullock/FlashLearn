@@ -1,0 +1,130 @@
+// home
+
+@use '../1-helpers/variables' as var;
+@use '../1-helpers/breakpoints' as bp;
+
+.section {
+  color: var.$color-black;
+}
+
+
+.section-feature {
+  background-color: var.$color-white;
+}
+
+
+.section-page-header {
+  background-color: var.$color-dark-shade;
+  color: var.$color-white;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+}
+
+
+.section-page-header--home {
+  background: url("../img/anthony-riera-kylWNDQFd5A-unsplash.jpg") no-repeat 50% 50% / cover;
+
+  &::before {
+    @include bp.media-breakpoint-up(sm) {
+      background: linear-gradient(to right, rgba(0, 0, 0, 1.0) 15%, rgba(0, 0, 0, 0.6) 30%, rgba(0, 0, 0, 0) 35%);
+    }
+
+    @include bp.media-breakpoint-up(lg) {
+      background: linear-gradient(to right, rgba(0, 0, 0, 1.0) 25%, rgba(0, 0, 0, 0.8) 32%, rgba(0, 0, 0, 0) 42%);
+    }
+  }
+}
+
+
+.section-page-header--set {
+  background: url(../img/thisisengineering-raeng-ccpOiDUmeo0-unsplash.jpg) no-repeat 90% 50% / cover;
+
+  @include bp.media-breakpoint-up(md) {
+    background: url(../img/thisisengineering-raeng-ccpOiDUmeo0-unsplash.jpg) no-repeat 50% 50% / cover;
+  }
+}
+
+
+.section-page-header--card-form {
+  background: url(../img/lala-azizli-qANvvc543Tg-unsplash.jpg) no-repeat 50% 20% / cover;
+}
+
+
+.section-page-header--create-set {
+  position: relative;
+  background: url("../img/christina-wocintechchat-com-vLwH8bWoi_8-unsplash.jpg") no-repeat 10% 40% / cover;
+
+  @include bp.media-breakpoint-up(md) {
+    background: url("../img/christina-wocintechchat-com-vLwH8bWoi_8-unsplash.jpg") no-repeat 50% 40% / cover;
+  }
+}
+
+
+.section-page-header__container {
+  min-height: calc(50vh - 3.75rem); 
+  
+  @include bp.media-breakpoint-up(md) {
+    min-height: calc(100vh - 3.75rem);
+    min-height: 560px;
+  }
+}
+
+
+.section-page-header__container--alt {
+  min-height: calc(60vh - 3.75rem);
+
+  @media(orientation: landscape) and (max-height: 512px) {
+    min-height: calc(97vh - 3.75rem);
+  }
+
+}
+
+
+.section-page-header__content {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  left: 0;
+  bottom: 1.5rem;
+
+  @include bp.media-breakpoint-up(md) {
+    bottom: 2rem;
+  }
+}
+
+
+.section-page-header__content-create-set {
+  bottom: 5rem;
+}
+
+
+.section-page-header__content--atl {
+  
+  @include bp.media-breakpoint-up(md) {
+    width: 37%;
+  }
+}
+
+.section-page-header__content--set {
+  bottom: 1.25rem;
+}
+
+.section-flash-card {
+  min-height: calc(100vh - 3.74rem);
+}
+
+// .section-page-header__actions--set {
+//   display: grid;
+//   grid-template-columns: repeat(3, 1fr);
+//   row-gap: 1rem;
+// }

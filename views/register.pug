@@ -1,19 +1,31 @@
 extends layout/layout
 block content
-  section.form__container
-    .form
-      .form__header
-        h2.form__title Sign up
-      .form__wrapper
-        form.form__body(method='POST', action='/register')
-          label.form__label(for='username') Username:
-          input.form__input(type='text', placeholder='bobby123' name='username' required)
-          label.form__label(for='email') Email:
-          input.form__input(type='email', placeholder='user@flashcard' name='email' required)
-          label.form__label(for='password') Password:
-          input.form__input(type='password', placeholder='●●●●●●●●' name='password' required)
-          label.form__label(for='confirmPassword') Confirm Password:
-          input.form__input(type='password', placeholder='●●●●●●●●' name='confirmPassword' required)
-          .form__action
-            button.btn.btn--form(type='submit') Sign up
-          
+  if (userRegistered == 'yes')
+    section.form-container.form-container--register.container
+      .form
+        a.btn-form-close(href='/') X
+        .form__header
+          h3.form__title Thank you for registering with FlashCard!
+          a.btn.btn--tertiary(href='/login') Login
+  else
+    section.form-container.container.py-5
+      .form.form--small.position-relative.p-3
+        a.btn-form-close(href='/') X
+        .form__header 
+          h2.form__title Sign up
+          .form__wrapper
+            form.form__body(method='POST', action='/register')
+              .form__group.mb-3
+                label.form__label(for='user_name') Username:
+                input.form__input.py-1.px-2(type='text', placeholder='bobby123' name='user_name' required)
+              .form__group.mb-3
+                label.form__label(for='user_email') Email:
+                input.form__input.py-1.px-2(type='email', placeholder='user@flashcard' name='user_email' required)
+              .form__group.mb-3
+                label.form__label(for='user_pass') Password:
+                input.form__input.py-1.px-2(type='password', placeholder='●●●●●●●●' name='user_pass' required pattern=".{8,}" title="8 characters minimum")
+              .form__group.mb-4
+                label.form__label(for='user_confirm_pass') Confirm Password:
+                input.form__input.py-1.px-2(type='password', placeholder='●●●●●●●●' name='user_confirm_pass' required pattern=".{8,}" title="8 characters minimum")
+              .form__action
+                button.btn.btn--tertiary.btn--large(type='submit') Sign up

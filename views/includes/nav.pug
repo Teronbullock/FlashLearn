@@ -1,0 +1,38 @@
+//- mobile nav
+nav(data-js="nav")
+  #js-nav-mobile.nav-mobile
+    ul.nav-mobile__list.nav-mobile--flex   
+      if currentUser    
+        li.nav-mobile__item 
+          a.nav-mobile__link(href="/home") Home
+        li.nav-mobile__item
+          a.nav-mobile__link(href="/create-set") Create Set
+        li.nav-mobile__item 
+          a.nav-mobile__link(href=`/profile/${userID}`) Profile
+        li.nav-mobile__item 
+          a.nav-mobile__link(href="/logout") Log Out
+      else 
+        li.nav-mobile__item
+          a.nav-mobile__link(href="/") Home
+        li.nav-mobile__item.nav-mobile--remove-border
+          a.nav-mobile__link(href="/register") Sign up
+        li.nav-mobile__item.nav-mobile--remove-border
+          a.btn.btn--primary(href='/login') Log In
+  //- desktop nav    
+  .nav-desktop
+    ul.nav-desktop__list.nav-desktop--flex   
+      if currentUser    
+        li.nav-desktop__item
+          a.nav-desktop__link(href="/home") Home
+        li.nav-desktop__item
+          a.nav-desktop__link(href="/create-set") Create Set
+        if userID
+          li.nav-desktop__item
+            a.nav-desktop__link(href=`/profile/${userID}`) Profile
+        li.nav__list-item.mr-0
+          a.btn.btn--black.p-3(href='/logout') LOG OUT 
+      else
+        li.nav__list-item
+          a.nav__list-link(href="/register") Sign up
+        li.nav__list-item.mr-0
+          a.btn.btn--primary.p-3(href='/login') LOGIN 

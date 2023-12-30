@@ -6,8 +6,21 @@ html(lang="en")
     meta(name='description', content='Flash Cards')
     meta(name='viewport', content='width=device-width', initial-scale=1.0 )
     link(rel='stylesheet', href='/static/css/style.css')
-    script(src='/static/js/nav-toggle-script.js' async)
-  body
+    script(src='/static/js/nav-toggle-script.min.js' async)
+    if cardScript 
+      script(src='/static/js/card-script.min.js' async)
+    if formScript 
+      script(src='/static/js/form-script.min.js' async)
+  if bodyClass 
+    - var bodyClass = bodyClass
+  else
+    - var bodyClass = ''
+  body.body(class=bodyClass)
     include ../includes/header
-    block content
+    if mainClass 
+      - var mainClass = mainClass
+    else
+      - var mainClass = ''
+    main.main(class=mainClass)
+      block content
     include ../includes/footer

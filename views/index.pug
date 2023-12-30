@@ -1,54 +1,41 @@
 extends layout/layout
 block content
-  section.l-hero
-    .l-hero__container.site-wrapper
-      .card.card--img-right
-        .card__aside
-        .card__content
-          .card__header
-            h2.card__title.card__title--hero
-              | Quick, Easy, Study in a Flash!
-          .card__body
-            p.card__copy.card__copy--hero 
-              | FlashCard is an app the makes studying online a breeze. Add your
-              | questions, answer and then begin studying. 
-            .card__action
-              a.btn.btn--callout.btn--large(href='/register') Sign up
-  section.l-feature.site-wrapper
-    .l-feature__container
-      .card.card--img-left
-        .card__aside
-          img(
-            class='img',
-            src='https://cdn.pixabay.com/photo/2015/05/31/13/45/young-791849_960_720.jpg'
-          )
-        .card__content
-          .card__header
-            h2.card__title Studing Made Easy
-            .card__img
-              img.card--icon(
-                src='https://www.flaticon.com/svg/static/icons/svg/2972/2972117.svg'
-              )
-          .card__body   
-            p.card__copy 
-              | Flashcard allows you to create your own flashcards to study from. 
-              | Sign-up is free and is easy to get started.    
-      .card.card--img-right
-        .card__aside
-          img(
-            class='img',
-            src='https://cdn.pixabay.com/photo/2017/08/01/00/38/laptop-2562325_960_720.jpg'
-          )
-        .card__content
-          .card__header
-            h2.card__title Save Time 
-            .card__img
-              img.card--icon(
-                src='https://www.flaticon.com/svg/static/icons/svg/2972/2972497.svg'
-              )
-          .card__body   
-            p.card__copy 
-              | Spend more time studing and lease time writing out your notes.
-              | 
+  section.hero(aria-label='Image of a person sitting on the floor with their back on a couch while using a laptop to study. Photo by Thought Catalog on Unsplash')
+    .hero__container.container
+      .hero__content
+        h1.hero__title Quick, Easy, Study in a Flash!
+        p.hero__copy Studying made easy with FlashCard. Create your own flashcards and study them online. 
+        a.btn.btn--primary.btn--large(href='/register') Sign up
+  section.section.section-feature.d-md-flex
+    .section__header.w-md-50  
+      img(
+        class='img',
+        alt='Image of a person studying using a laptop. Photo by Kojo Kwarteng on Unsplash',
+        src='static/img/kojo-kwarteng-KUzlAah2dog-unsplash.jpg'
+      )
+    .section__content.w-md-50.py-3
+      .container
+        .section__content-header
+          h2.section__content-title.my-3 Studying Made Easy
+        .section__content-body.pb-4 
+          p.section__content-copy.m-0
+            | Flashcard allows you to create your own flashcards to study from. 
+            | Sign-up is free and is easy to get started.    
+  section.section.section-feature.section-feature--alt.d-md-flex.flex-md-row-reverse
+    .section__header.w-md-50
+      img(
+        class='img',
+        atl='Image of a person studying using a laptop. Photo by Anete Lūsiņa on Unsplash',
+        src='static/img/anete-lusina--4Wi_ii6StY-unsplash.jpg'
+      )
+    .section__content.w-md-50.py-3
+      .container
+        .section__content-header
+          h2.section__content-title.my-3 Save Time
+        .section__content-body.pb-4
+          p.section__content-copy.m-0
+            | Spend more time studing and lease time writing out your notes.
+            |
+
           .card__footer
             .card__action   

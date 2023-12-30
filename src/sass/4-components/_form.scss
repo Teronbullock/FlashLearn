@@ -1,0 +1,118 @@
+// form
+
+@use '../1-helpers/variables' as var;
+@use '../1-helpers/breakpoints' as bp;
+
+.form-container {
+  min-height: calc(90vh - 10rem);
+
+  @include bp.media-breakpoint-up(md) {
+    min-height: calc(100vh - 10rem);
+  }
+}
+
+.form {
+  width: 100%;
+  min-height: 450px;
+  margin: 0rem auto;
+  color: var.$color-black;
+  background-color: var.$color-white;
+  border-radius: 15px;
+  border: solid 3px var.$color-white;
+  box-shadow: var.$black-shadow-1;
+  -webkit-box-shadow: var.$black-shadow-1;
+  -moz-box-shadow: var.$black-shadow-1;
+
+
+  @include bp.media-breakpoint-up(md) {
+    width: 100%;
+    min-height: 450px;
+    padding: 2rem 5rem;
+  }
+}
+
+.form--small {
+  @include bp.media-breakpoint-up(md) {
+    max-width: 800px;
+  }
+}
+
+.form--medium {
+  @include bp.media-breakpoint-up(md) {
+    max-width: 1000px;
+  }
+}
+
+.form--large {
+  @include bp.media-breakpoint-up(md) {
+    max-width: 1200px;
+  }
+}
+
+.form--position-absolute {
+  right: 8px;
+  left: 8px;
+  top: 16rem;
+
+  @include bp.media-breakpoint-up(md) {
+    right: 0;
+    left: 0;
+    top: 35rem;
+  }
+}
+
+
+.form__title {
+  margin: 1rem 0;
+}
+
+.form-container--register .form__title {
+  margin: 2rem 0;
+}
+
+.form__body {
+  margin-bottom: 2rem;
+}
+
+.form__group {
+  width: 100%;
+}
+
+.form__label {
+  width: 100%;
+  font-size: 1.25rem;
+}
+
+.form__input {
+  width: 100%;
+  color: var.$color-black;
+  font-size: 1.25rem;
+  background-color: var.$color-white;
+  border-radius: 5px;
+  border: 2px solid var.$color-black;
+  outline: none;
+
+  @include bp.media-breakpoint-up(md) {
+    margin: .25rem 0 1.5rem;
+    padding: 1rem;
+    font-size: 1.5rem;
+  }
+
+}
+
+.form__input--textarea {
+  text-align: left;
+  padding: 1rem;
+}
+
+.form__color-input {
+  width: 70px;
+}
+
+.form__action {
+  margin-top: .5rem;
+
+  @include bp.media-breakpoint-up(md) {
+    margin-top: 2rem; 
+  }
+}

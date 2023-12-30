@@ -1,0 +1,11 @@
+// error
+@use '../1-helpers/variables' as var;
+
+.error {
+  min-height: 100vh;
+  padding-top: 8rem;
+  width: 80%;
+  color: var.$color-black;
+  margin-left: auto;
+  margin-right: auto;
+}

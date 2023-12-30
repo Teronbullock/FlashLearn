@@ -1,0 +1,36 @@
+extends layout/layout
+block content
+  section.section-page-header.section-page-header--home( aria-label='Home Page Header. This section contains the title and description. The background image is of a person with a black shirt studying. Photo by Anthony Riera on Unsplash.')
+    .section-page-header__container.section-page-header__container--alt.container.py-5.position-relative
+      .section-page-header__content.section-page-header__content--atl.position-absolute
+        h1.section-page-header__title.text-white.mb-4.mb-md-5 Welcome to FlashCard
+        h2.section-page-header__description.mt-0.mb-4.mb-md-5(aria-label=`Set Page Header Description.`) To get started create a Set.
+        a.btn.btn--tertiary.mr-4.btn--large(href='/create-set') Create Set
+  section.container.py-5
+    if !sets.length
+      p.section__copy 
+    if sets.length
+      .list-card-container
+        each set, index in sets
+          .list-card.mb-5(data-number=set.ID)
+            //- p=`Set ${index + 1}. `
+            .list-card__info.d-flex.justify-content-between.flex-wrap-wrap
+              p.my-0=`#${index + 1}`
+              each card, index in cards
+                if card.setID === set.ID
+                  p.list-card__body-info-title.my-0=`Terms: ${card.cardCount}` 
+            .divider-h.my-3
+            .list-card__header.mb-3
+              a.list-card__title-link(href='/set/'+ set.ID)
+                h3.list-card__title.my-0.line-clamp.line-clamp--2 #{set.title}
+                //- h3.list-card__title.my-0.line-clamp.line-clamp--2 
+                //-   span.list-card__number=`${index + 1}. `
+                //-   | #{set.title}
+            .list-card__body.mb-3
+              p.list-card__desc.mb-0.line-clamp.line-clamp--2= set.description
+            .list-card__action.mb-3.d-flex   
+              a.btn.btn--medium.btn--outline-black.mr-3(href='/set/'+ set.ID aria-label='view set') View
+              form(method='POST' action=`/set/${set.ID}/delete?_method=DELETE`)
+                input(type='hidden' name='_method' value='DELETE')
+                button.btn.btn--medium.btn--outline-dark-shade(type='submit' aria-label='delete set') Delete
+                              

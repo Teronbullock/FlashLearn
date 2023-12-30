@@ -1,0 +1,173 @@
+// variables
+
+// colors
+$color-primary: #c93916;
+$color-secondary: #ADAAA6;
+$color-tertiary: #6e8875;
+$color-dark-brown: #361D14;
+$color-white: #ffffff;
+$color-black: #000000;
+$color-light-gray: #e3e6ef;
+$color-green: #46544a;
+$color-mustard: #dd9243;
+$color-dark-shade: #2A2B2D;
+$color-light-shade: #6A6F6F;
+
+
+$colors: (
+  "primary": $color-primary,
+  "secondary": $color-secondary,
+  "tertiary": $color-tertiary,
+  "dark-brown": $color-dark-brown,
+  "white": $color-white,
+  "black": $color-black,
+  "light-gray": $color-light-gray,
+  "green": $color-green,
+  "mustard": $color-mustard,
+  "light-shade": $color-light-shade,
+  "dark-shade": $color-dark-shade,
+);
+
+
+// shadows
+$black-shadow-1: 10px 10px 8px -2px rgba(0, 0, 0, 0.4);
+$black-shadow-2: 4px 4px 5px 0px rgba(0, 0, 0, 0.2);
+
+
+// font-family
+$font-main: averta, avenir w02, avenir, Helvetica, Arial, sans-serif;
+$font-header: 'Courgette', cursive;
+
+
+// media sizes
+$breakpoints: (
+  0:        0,
+  i4:       320px,
+  xs:       375px,
+  sm:       576px,
+  md:       768px,
+  lg:       992px,
+  xl:       1200px,
+  xxl:      1400px,
+  xxl-16:   1600px,
+  xxl-19:   1920px,
+  xxl-1921: 1921px,
+);
+
+
+// sides
+$sides: (
+  0: 0,
+  t: top,
+  r: right,
+  b: bottom,
+  l: left,
+  x: left right,
+  y: top bottom,
+);
+
+
+// spacers
+$spacers: (
+  0: 0,
+  1: 1rem * .25,
+  2: 1rem * .5,
+  3: 1rem,
+  4: 1rem * 1.5,
+  5: 1rem * 3,
+  auto: auto,
+);
+
+
+// widths
+$widths: (
+  0: 0,
+  10: 10%,
+  15: 15%,
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%,
+);
+
+
+// heights
+$heights: (
+  0: 0,
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%,
+);
+
+
+// displays
+$displays: (
+  block: block,
+  inline-block: inline-block,
+  inline: inline,
+  flex: flex,
+  inline-flex: inline-flex,
+  grid: grid,
+  inline-grid: inline-grid,
+  table: table,
+  table-row: table-row,
+  table-cell: table-cell,
+  none: none,
+);
+
+
+// flex directions
+$flex-directions: (
+  row: row,
+  row-reverse: row-reverse,
+  column: column,
+  column-reverse: column-reverse,
+);
+
+
+// flex justifications
+$justify-content: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  between: space-between,
+  around: space-around,
+);
+
+
+// flex alignments
+$align-items: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  baseline: baseline,
+  stretch: stretch,
+);
+
+
+// positions 
+$positions: (
+  static: static,
+  relative: relative,
+  absolute: absolute,
+  fixed: fixed,
+  sticky: sticky,
+);
+
+
+// flex wrap
+$flex-wrap: (
+  wrap: wrap,
+  nowrap: nowrap,
+  wrap-reverse: wrap-reverse,
+);
+
+
+// text align
+$text-align: (
+  left: left,
+  right: right,
+  center: center,
+  justify: justify,
+);

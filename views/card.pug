@@ -1,25 +1,40 @@
 extends layout/layout
 block content
-  .l-flashCard
-    .l-flashCard__container
-      .card.card--flashCard
-        .card__aside--flashCard
-        .card__content--flashCard 
-          .card__header
-            h3.card__title--flashCard.card--title-small= text
-          .card__body.l-flashCard__body  
-            p.card__copy
-            if hint
-              p.card__copy
-                i Hint: #{hint}
-          .card__footer
-            .card__action.card--flex-center   
-              a(
-                class='btn btn--callout btn--mx1'
-                href=`${id}?side=${sideToShow}`
-              )= sideToShowDisplay
-              br
-              a(
-                class='btn btn--green btn--mx1'
-                href='/cards'
-              ) Next card
+  .container.py-4
+    section.section-page-nav 
+      a.btn.btn--black.btn--large.mt-3(href=`/set/${setID}/`) Back to Set
+    section.section-flash-card.py-3
+      .flashcard.mx-auto(data-js='flashcard')
+        .flashcard__inner(data-js='flashcardInner')
+          .flashcard--front(style=`background-color: ${cardColor}` data-js='flashcardFront')
+            .flashcard__aside
+                h1.flashcard__title.mt-0 Term
+            .flashcard__body
+              .flashcard__header.p-3(style=`border-color: ${cardTextColor}`)
+                a.btn.btn--secondary.btn--large.mb-3(data-js='flashcardFrontFlipBtn') Definition
+                p.flashcard__text(style=`color: ${ cardTextColor }`)= frontCardText
+              .flashcard__footer.d-flex.justify-content-center.p-4
+                if prevPage > 0
+                  a.btn.btn--black.mr-4(href=`/set/${setID}/cards/?page=${prevPage}`) <
+                else 
+                  a.btn.btn--outline-secondary.mr-4(disabled) <
+                if page < count
+                  a.btn.btn--black(href=`/set/${setID}/cards/?page=${nextPage}`) >
+                else
+                  a.btn.btn--outline-secondary(disabled) >
+          .flashcard--back(style=`background-color: ${cardColor}` data-js='flashcardBack')
+            .flashcard__aside
+                h1.flashcard__title.mt-0 Definition
+            .flashcard__body
+              .flashcard__header.p-3(style=`border-color: ${cardTextColor}`)
+                a.btn.btn--secondary.btn--large.my-3(data-js='flashcardBackFlipBtn') Term
+                p.flashcard__text(style=`color: ${ cardTextColor }`)= backCardText
+              .flashcard__footer.d-flex.justify-content-center.p-4
+                if prevPage > 0
+                  a.btn.btn--black.mr-4(href=`/set/${setID}/cards/?page=${prevPage}`) <
+                else 
+                  a.btn.btn--outline-secondary.mr-4(disabled) <
+                if page < count
+                  a.btn.btn--black(href=`/set/${setID}/cards/?page=${nextPage}`) >
+                else
+                  a.btn.btn--outline-secondary(disabled) >

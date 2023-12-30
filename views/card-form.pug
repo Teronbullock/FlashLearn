@@ -1,0 +1,64 @@
+extends layout/layout
+block content
+  section.section-page-header.section-page-header--card-form( aria-label='Add Card Page Header. This section contains the title, description, and actions for the add card page. The background image is of a person in black crew neck shirt using Macbook. Photo by Lala Azizli on Unsplash.')
+    .section-page-header__container.container.py-5.position-relative
+      .section-page-header__content-create-set.position-absolute.w-50
+        if view === 'add'
+          h1.section-page-header__title.mb-4.text-white Add Card
+        else if view === 'edit'
+          h1.section-page-header__title.mb-4.text-white Edit Card
+  .form-container.container.py-5
+    if view === 'add'
+      form.form.form--medium.p-3(data-js="form" method='POST', action='/set/'+ setID +'/card/add')
+        .form__header
+          if msg == 'Card Added!'
+            h2.form__title.mb-4 Your Card Has Been Added!
+        .form__body
+
+          .form__group.mb-3
+            label.form__label(for='term') Term:
+            textarea.form__input.form__input--textarea(type='text', placeholder='Enter term' name='term' row="2" cols="50" maxlength="1000" required)
+          .form__group.mb-3
+            label.form__label(for='definition') Definition:
+            textarea.form__input.form__input--textarea(type='text', placeholder='Enter Definition' name='definition' row="2" cols="50" maxlength="1000")
+          .form__group.mb-3.mb-md-5.d-flex.d-md-block.flex-wrap-wrap 
+            a.btn.btn--black.mr-md-4.mb-3.mb-md-0(tabindex="0" data-js='card-color-reset' ) Reset<br> Colors
+            label.form__label.mr-3.mb-1.mb-md-0(for='card-color') Card Color:
+            input.mr-4.form__color-input.mb-3.mb-md-0(type='color' name='card-color' value='#ffffff' data-js='card-color')
+            label.form__label.mr-3.mb-1.mb-md-0(for='card-text-color') Card Text Color:
+            input.form__color-input(type='color' name='card-text-color' value='#000' data-js='card-text-color')
+        .form__action.d-flex.d-md-block
+            button.btn.btn--tertiary.btn--large.mr-3.mr-md-5(type='submit') Add Card
+            if msg == 'Card Added!'
+              a.btn.btn--outline-black.btn--large(href='/set/'+ setID) View Set
+            else
+              a.btn.btn--outline-black.btn--large(href='/set/'+ setID) Cancel
+    else if view === 'edit'
+      form.form.form--medium.p-3(data-js="form" method='POST', action=`/set/${setID}/card/${card.ID}/edit?_method=PUT`)
+        .form__header
+            if msg == 'Card Updated!'
+              h2.form__title Card Updated
+            else
+              h2.form__title Edit Card
+        .form__body
+          .form__group.mb-3
+            label.form__label(for='term') Term:
+            textarea.form__input.form__input--textarea(type='text', placeholder='Enter term' name='term' row="2" cols="50" maxlength="1000" required) #{card.card_term}
+          .form__group.mb-3
+            label.form__label(for='definition') Definition:
+            textarea.form__input.form__input--textarea(type='text', placeholder='Enter Definition' name='definition' row="2" cols="50" maxlength="1000" required) #{card.card_definition}
+          .form__group.mb-3.mb-md-5.d-md-flex.flex-md-row.d-md-block.flew-wrap-wrap 
+              .w-100.w-md-0
+                a.btn.btn--black.mb-4.mb-md-0.mr-md-4.text-left(data-js='card-color-reset' ) Reset<br> Colors
+              .w-100.w-md-0
+                label.form__label.mr-3(for='card-color') Card Color:
+                input.form__color-input.mt-2.mt-md-0.mr-4.mb-3.mb-md-0(type='color' name='card-color' value=`${card.card_color}` data-js='card-color')
+              .w-100.w-md-0
+                label.form__label.mr-3(for='card-text-color') Card Text Color:
+                input.form__color-input.mt-2.mt-md-0(type='color' name='card-text-color' value=`${card.card_text_color}` data-js='card-text-color')
+        .form__action.d-flex.d-md-block
+            button.btn.btn--tertiary.btn--large.mr-5(type='submit') Edit Card
+            if msg == 'Card Updated!'
+              a.btn.btn--outline-black.btn--large(href='/set/'+ setID) View Set
+            else
+              a.btn.btn--outline-black.btn--large(href='/set/'+ setID) Cancel

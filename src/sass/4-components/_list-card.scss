@@ -1,0 +1,25 @@
+// list-card
+@use '../1-helpers/variables' as var;
+@use '../1-helpers/breakpoints' as bp;
+
+.list-card {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: var.$color-white;
+  box-shadow: var.$black-shadow-2;
+  border-radius: 5px;
+
+  @include bp.media-breakpoint-up(md) {
+    padding: 2rem;
+  }
+}
+
+.list-card__number {
+  color: var.$color-dark-shade
+}
+
+.list-card__title {
+  color: var.$color-dark-shade;
+}

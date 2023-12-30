@@ -1,0 +1,32 @@
+extends layout/layout
+block content
+  section.section-page-header.section-page-header--set( aria-label='Set Page Header. This section contains the title, description, and actions for the set page. The background image is of a person with red hair studying, while facing forward and looking towards the camera. Photo by ThisisEngineering RAEng on Unsplash.')
+    .section-page-header__container.container.py-5.position-relative
+      .section-page-header__content.section-page-header__content--set.position-absolute.w-100.w-md-50
+        .section-page-header__actions.section-page-header__actions--set
+          a.btn.btn--set-page.mr-3.mr-md-4(href=`/set/${set.ID}/edit`) Edit Set
+          a.btn.btn--set-page.mr-3.mr-md-4(href=`/set/${set.ID}/card/add`) Add Card
+          if cards.length > 0
+            a.btn.btn--set-page(href=`/set/${set.ID}/cards/?page=1`) View Cards
+  section.section.container.py-4
+    if set.title
+      h1.section-page-header__title.mt-0.mb-4.mb-md-5=set.title
+    if set.description
+      h2.section-page-header__description.my-0(aria-label=`Set Page Header Description.`)=set.description
+  if cards.length > 0
+    section.section-cards.py-3
+      .container
+        each card, index in cards
+          form.list-card.mb-5(tabindex='0' aria-label='Set Card' method='POST' action=`/set/${set.ID}/card/${card.ID}/delete?_method=DELETE`)
+            .list-card__header.mb-5.w-md-75
+              h3.list-card__title.mt-0.mb-2(aria-label=`Card Term: ${card.card_term}`)=`${index + 1}. Term: `               
+              p.m-0= card.card_term
+              .divider-h.divider-h--bold.my-4.d-md-none
+              h3.list-card__title.mb-2(aria-label=`Card Definition: ${card.card_definition}`)= `Definition: `
+              p.m-0= card.card_definition
+            .divider-v.divider-v--bold.d-none.d-md-block.mx-3
+            .list-card__body.mb-4.mb-md-0.w-md-25
+              .list-card__body-actions.d-flex
+                a.btn.btn--small.btn--outline-dark-shade.mr-4(href=`/set/${set.ID}/card/${card.ID}/edit`) Edit Card
+                input(type='hidden' name='_method' value='DELETE')
+                button.btn.btn--small.btn--outline-dark-shade(type='submit') Delete Card

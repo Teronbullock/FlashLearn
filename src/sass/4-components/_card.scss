@@ -1,0 +1,104 @@
+//  card
+
+@use '../1-helpers/variables' as var;
+@use '../1-helpers/breakpoints' as bp;
+
+.card,
+.card--flex-center  {
+  display: flex;
+}
+
+.card__aside,
+.card__content {
+  width: 100%;
+
+  @include bp.media-breakpoint-up(md) {
+    width: 50%; 
+  } 
+}
+
+
+.card__title--hero,
+.card__copy--hero {
+  margin: 0 0 1.75rem;
+
+  @include bp.media-breakpoint-up(sm) {
+    margin: 0 0 3rem;
+  } 
+}
+
+.card__header, .card__body {
+  margin: 2rem 0;
+}
+
+.card {
+  text-align: center;
+}
+
+.card {
+  position: relative;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  
+  @include bp.media-breakpoint-up(md) {
+    text-align: left;
+  }
+}
+
+.card__content {
+  padding: 2rem;
+}
+
+.card__title {
+  font-size: 2.2rem;  
+}
+
+.card__copy {
+  font-size: 1rem;
+  line-height: 1.7;
+
+  @include bp.media-breakpoint-up(md) {
+    font-size: 1.5rem;
+  }
+}
+
+.card__footer {
+width: 100%;
+}
+
+//  -- Modifiers --
+
+.card__title--hero {
+  font-size: 1.5rem;
+  
+  @include bp.media-breakpoint-up(md) {
+    margin: 4rem 0 2rem;
+  }
+}
+
+.card__copy--hero {
+  line-height: 1.5;
+  text-align: left;
+}
+
+.card--img-left {
+  @include bp.media-breakpoint-up(md) {
+    flex-direction: row;
+  }
+}
+
+.card--img-right {
+  @include bp.media-breakpoint-up(md) {
+    flex-direction: row-reverse;
+  }
+}
+
+.card--title-small {
+  font-size: 1.25rem;
+}
+
+.card--icon {
+  height: 40px;
+  width: 40px;
+}

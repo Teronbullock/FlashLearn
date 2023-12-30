@@ -1,60 +1,19 @@
-header.l-header
-  .l-header__container.site-wrapper
-    .site-title__wrapper
-      h1.site-title
-        if !currentUser 
-          a(
-            class='site-title__link'
-            href="/"
-            ) FlashCard
-        else
-          a(
-          class='site-title__link'
-          href="/welcome"
-          ) FlashCard   
+header.header
+  .header__container.container
+    h1.header__site-title
+      if !currentUser 
+        a(
+          class='header__site-title-link'
+          href="/"
+          ) FlashCard
+      else
+        a(
+        class='header__site-title-link'
+        href="/home"
+        ) FlashCard   
 
-    button(id="js-btn--mobile-toggle" class="btn--mobile-toggle" onclick="toggleNav()")
-      .btn--bar1
-      .btn--bar2
-      .btn--bar3
-    
-    .nav__wrapper
-      nav(id='js-mobile-nav' class='mobile-nav')
-        .mobile-nav__container
-          ul.mobile-nav__list.mobile-nav--flex   
-            if currentUser    
-              li.mobile-nav__item
-                a.mobile-nav__link(href="/cards") Cards
-              li.mobile-nav__item
-                a.mobile-nav__link(href="/add_card") Add Card
-
-          ul.mobile-nav__list
-            if !currentUser  
-              li.mobile-nav__item.mobile-nav--remove-border
-                a.mobile-nav__link(href="/register") Sign up
-
-            if currentUser    
-              li.mobile-nav__item.mobile-nav--remove-border
-                a.btn.btn--small(href='/logout') LOG OUT
-            else 
-              li.mobile-nav__item.mobile-nav--remove-border
-                a.btn.btn--callout(href='/login') LOGIN 
-              
-    nav.nav
-      ul.nav__list.nav--flex   
-        if currentUser    
-          li.nav__item
-            a.nav__link(href="/cards") Cards
-          li.nav__item
-            a.nav__link(href="/add_card") Add Card 
-
-    .list        
-      ul.list__container
-        if !currentUser  
-          li.list__item
-            a.list__link(href="/register") Sign up
-          li.list__item
-            a.btn.btn--callout(href='/login') LOGIN 
-        else  
-          li.list__item
-            a.btn(href='/logout') LOG OUT 
+    button(id="js-btn-mobile-toggle" class="btn-mobile-toggle" onclick="toggleNav()")
+      .btn-bar1
+      .btn-bar2
+      .btn-bar3
+    include ./nav

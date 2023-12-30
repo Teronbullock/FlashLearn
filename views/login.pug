@@ -1,14 +1,17 @@
 extends layout/layout
 block content
-  section.form__container
-    .form
+  section.form-container.container.py-5
+    .form.form--small.p-3
+      a.btn-form-close(href='/') X
       .form__header
         h2.form__title Login
       .form__wrapper
-        form.form__body(method='post' action='/login')
-          label.form__label(for='username') Username:
-          input.form__input(type='text' name='username')
-          label.form__label(for='password') password:
-          input.form__input(type='password' name='password' )
+        form.form__body(method='POST' action='/login')
+          .form__group.mb-3
+            label.form__label(for='user_name') Username:
+            input.form__input.py-1.px-2(type='text' name='user_name')
+          .form__group.mb-5
+            label.form__label(for='user_pass') Password:
+            input.form__input.py-1.px-2(type='password' name='user_pass' )
           .form__action
-            button.btn.btn--form(type='submit') Login
+            button.btn.btn--large.btn--tertiary(type='submit') Login

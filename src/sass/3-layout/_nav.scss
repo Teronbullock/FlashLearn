@@ -1,0 +1,93 @@
+//  nav
+
+@use '../1-helpers/variables' as var;
+@use '../1-helpers/breakpoints' as bp;
+
+.nav-mobile__item,
+.nav-mobile__link {
+  display: block;
+}
+
+.open .nav-mobile {
+  width: 100%;
+}
+
+.nav-mobile {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 0;
+  z-index: 100;
+  background-color: var.$color-white;
+  transition: 0.2s;
+  overflow-x: hidden;
+  text-align: center;
+
+  @include bp.media-breakpoint-up(md) {
+    display: none;
+  }
+}
+
+.nav-mobile__list {
+  padding: 4rem 1rem 2rem;
+}
+
+.nav-mobile__item {
+  border-bottom: 1px solid;
+  padding: 1rem 0;
+}
+
+.nav-mobile__link {
+  transition: 0.3s;
+  text-decoration: none;
+  cursor: pointer;
+  color: var.$color-black;
+}
+
+.nav-mobile--remove-border {
+  border: none;
+}  
+
+// desktop nav
+
+.nav-desktop {
+  display: none;
+
+  @include bp.media-breakpoint-up(md) {
+    display: block;
+  }
+}
+
+.nav-desktop__list {
+  align-items: center;
+  list-style-type: none;
+  color: var.$color-secondary;
+  margin: 0;
+  padding-inline-start: 0;
+}
+
+.nav-desktop__item {
+  margin: 0 1rem;
+}
+
+.nav-desktop__link {
+  color: var.$color-black;
+  
+}
+
+// -- modifier --
+
+.nav-desktop--flex {
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.nav__list-item {
+  margin: 0 1rem;
+}
+
+.nav__list-link {
+  color: var.$color-black;
+}

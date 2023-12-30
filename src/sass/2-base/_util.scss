@@ -1,0 +1,371 @@
+// util
+@use '../1-helpers/variables' as var;
+@use '../1-helpers/breakpoints' as bp;
+
+// container
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
+
+  @include bp.media-breakpoint-up(sm) {
+    max-width: 540px;
+  }
+
+  @include bp.media-breakpoint-up(md) {
+    max-width: 720px;
+  }
+
+  @include bp.media-breakpoint-up(lg) {
+    max-width: 960px;
+  }
+
+  @include bp.media-breakpoint-up(xl) {
+    max-width: 1140px;
+  }
+
+  @include bp.media-breakpoint-up(xxl) {
+    max-width: 1320px;
+  }
+
+  @include bp.media-breakpoint-up(xxl-16) {
+    max-width: 1520px;
+  }
+
+  @include bp.media-breakpoint-up(xxl-19) {
+    max-width: 1840px;
+  }
+
+  @include bp.media-breakpoint-up(xxl-1921) {
+    max-width: 1920px;
+  }
+}
+
+
+// margin
+@each $bpKey, $bpValue in var.$breakpoints {
+  @each $sideKey, $sideValue in var.$sides {
+    @each $key, $value in var.$spacers {
+      @if $sideKey == 0 {
+        @if $bpKey == 0 {
+          .m-#{$key} {
+            margin: $value !important;
+          }
+
+        } @else {
+          @include bp.media-breakpoint-up($bpKey) {
+            .m-#{$bpKey}-#{$key} {
+              margin: $value !important;
+            }
+          }
+        }
+
+      } @else {
+        @if $bpKey == 0 {
+          @if $sideKey == 'x' {
+            .m#{$sideKey}-#{$key} {
+              margin-left: $value !important;
+              margin-right: $value !important;
+            }
+          } @else if $sideKey == 'y' {
+            .m#{$sideKey}-#{$key} {
+              margin-top: $value !important;
+              margin-bottom: $value !important;
+            }
+          } @else {
+            .m#{$sideKey}-#{$key} {
+              margin-#{$sideValue}: $value !important;
+            }
+          }
+        } @else {
+          @include bp.media-breakpoint-up($bpKey) {
+            @if $sideKey == 'x' {
+              .m#{$sideKey}-#{$bpKey}-#{$key} {
+                margin-left: $value !important;
+                margin-right: $value !important;
+              }
+            } @else if $sideKey == 'y' {
+              .m#{$sideKey}-#{$bpKey}-#{$key} {
+                margin-top: $value !important;
+                margin-bottom: $value !important;
+              }
+            } @else {
+              .m#{$sideKey}-#{$bpKey}-#{$key} {
+                margin-#{$sideValue}: $value !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// padding
+@each $bpKey, $bpValue in var.$breakpoints {
+  @each $sideKey, $sideValue in var.$sides {
+    @each $key, $value in var.$spacers {
+      @if $sideValue == 0 {
+        @if $bpKey == 0 {
+          .p-#{$key} {
+            padding: $value !important;
+          }
+
+        } @else {
+          @include bp.media-breakpoint-up($bpKey) {
+            .p-#{$bpKey}-#{$key} {
+              padding: $value !important;
+            }
+          }
+        }
+      } @else {
+        @if $bpKey == 0 {
+          @if $sideKey == 'x' {
+            .p#{$sideKey}-#{$key} {
+              padding-left: $value !important;
+              padding-right: $value !important;
+            }
+          } @else if $sideKey == 'y' {
+            .p#{$sideKey}-#{$key} {
+              padding-top: $value !important;
+              padding-bottom: $value !important;
+            }
+          } @else {
+            .p#{$sideKey}-#{$key} {
+              padding-#{$sideValue}: $value !important;
+            }
+          }
+        } @else {
+          @include bp.media-breakpoint-up($bpKey) {
+            @if $sideKey == 'x' {
+              .p#{$sideKey}-#{$bpKey}-#{$key} {
+                padding-left: $value !important;
+                padding-right: $value !important;
+              }
+            } @else if $sideKey == 'y' {
+              .p#{$sideKey}-#{$bpKey}-#{$key} {
+                padding-top: $value !important;
+                padding-bottom: $value !important;
+              }
+            } @else {
+              .p#{$sideKey}-#{$bpKey}-#{$key} {
+                padding-#{$sideValue}: $value !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// widths
+@each $bpKey, $bpValue in var.$breakpoints {
+  @each $key, $value in var.$widths {
+    @if $bpKey == 0 {
+      .w-#{$key} {
+        width: $value !important;
+      }
+
+    } @else {
+      .w-#{$bpKey}-#{$key} {
+        @include bp.media-breakpoint-up($bpKey) {
+          width: $value !important;
+        }
+      }
+    }
+  }
+}
+
+
+// heights
+@each $bpKey, $bpValue in var.$breakpoints {
+  @each $key, $value in var.$heights {
+    @if $bpKey == 0 {
+      .h-#{$key} {
+        height: $value !important;
+      }
+
+    } @else {
+      @include bp.media-breakpoint-up($bpKey) {
+        .h-#{$bpKey}-#{$key} {
+          height: $value !important;
+        }
+      }
+    }
+  }
+}
+
+
+// displays
+@each $bpKey, $bpValue in var.$breakpoints {
+  @each $key, $value in var.$displays {
+    @if $bpKey == 0 {
+      .d-#{$key} {
+        display: $value !important;
+      }
+
+    } @else {
+      @include bp.media-breakpoint-up($bpKey) {
+        .d-#{$bpKey}-#{$key} {
+          display: $value !important;
+        }
+      }
+    }
+  }
+}
+
+
+// flex-directions
+@each $bpKey, $bpValue in var.$breakpoints {
+  @each $key, $value in var.$flex-directions {
+    @if $bpKey == 0 {
+      .flex-#{$key} {
+        flex-direction: $value !important;
+      }
+
+    } @else {
+      @include bp.media-breakpoint-up($bpKey) {
+        .flex-#{$bpKey}-#{$key} {
+          flex-direction: $value !important;
+        }
+      }
+    }
+  }
+}
+
+
+// flex-justifications
+@each $bpKey, $bpValue in var.$breakpoints {
+  @each $key, $value in var.$justify-content {
+    @if $bpKey == 0 {
+      .justify-content-#{$key} {
+        justify-content: $value !important;
+      }
+
+    } @else {
+      @include bp.media-breakpoint-up($bpKey) {
+        .justify-content-#{$bpKey}-#{$key} {
+          justify-content: $value !important;
+        }
+      }
+    }
+  }
+}
+
+
+// flex-alignments
+@each $bpKey, $bpValue in var.$breakpoints {
+  @each $key, $value in var.$align-items {
+    @if $bpKey == 0 {
+      .align-items-#{$key} {
+        align-items: $value !important;
+      }
+
+    } @else {
+      @include bp.media-breakpoint-up($bpKey) {
+        .align-items-#{$bpKey}-#{$key} {
+          align-items: $value !important;
+        }
+      }
+    }
+  }
+}
+
+
+// position types
+@each $bpKey, $bpValue in var.$breakpoints {
+  @each $key, $value in var.$positions {
+    @if $bpKey == 0 {
+      .position-#{$key} {
+        position: $value !important;
+      }
+
+    } @else {
+      @include bp.media-breakpoint-up($bpKey) {
+        .position-#{$bpKey}-#{$key} {
+          position: $value !important;
+        }
+      }
+    }
+  }
+}
+
+
+// flex wrap
+@each $bpKey, $bpValue in var.$breakpoints {
+  @each $key, $value in var.$flex-wrap {
+    @if $bpKey == 0 {
+      .flex-wrap-#{$key} {
+        flex-wrap: $value !important;
+      }
+
+    } @else {
+      @include bp.media-breakpoint-up($bpKey) {
+        .flex-wrap-#{$bpKey}-#{$key} {
+          flex-wrap: $value !important;
+        }
+      }
+    }
+  }
+}
+
+
+// text color
+@each $color, $value in var.$colors {
+  .text-#{$color} {
+    color: $value !important;
+  }
+}
+
+
+// text align
+@each $key, $value in var.$text-align {
+  .text-#{$key} {
+    text-align: $value !important;
+  }
+}
+
+// dividers
+.divider-h {
+  width: 100%;
+  height: 1px;
+  background-color: var.$color-black;
+
+  &--bold {
+    height: 2px;
+  }
+}
+
+.divider-v {
+  width: 1px;
+  height: auto;
+  background-color: var.$color-black;
+
+  &--bold {
+    width: 3px;
+  }
+}
+
+.line-clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.line-clamp--1 {
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp--2 {
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp--3 {
+  -webkit-line-clamp: 3;
+}

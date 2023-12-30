@@ -1,0 +1,184 @@
+// button
+
+@use '../1-helpers/variables' as var;
+@use '../1-helpers/breakpoints' as bp;
+
+.btn {
+  min-width: 75px;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  font-family: var.$font-main;
+  text-decoration: none;
+  color: var.$color-white;
+  text-align: center;
+
+  &:hover {
+    background-color: var.$color-secondary;
+    color: var.$color-black;
+    cursor: pointer;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+}
+
+
+// btn colors
+@each $color, $value in var.$colors {
+  .btn--#{$color} {
+    background-color: $value;
+  }
+
+  @if $color == 'secondary' {
+    .btn--#{$color}:hover {
+      background-color: $value;
+      color: var.$color-white;
+    }
+  }
+}
+
+
+@each $color, $value in var.$colors {
+  @if $color == 'white' {
+    .btn--outline-#{$color} {
+      color: $value;
+      background-color: unset;
+      border: 1px $value solid;
+    
+      &:hover {
+        background-color: $value;
+        color: var.$color-black;
+      }
+    }
+  } @else {
+    .btn--outline-#{$color} {
+      color: $value;
+      background-color: unset;
+      border: 1px $value solid;
+    
+      &:hover {
+        background-color: $value;
+        color: var.$color-white;
+      }
+    }
+  }
+}
+
+
+// btn types
+.btn--set-page {
+  min-width: 55px;
+  padding: unset;
+
+  @include bp.media-breakpoint-up(md) {
+    padding: 1rem;
+    color: var.$color-white;
+    background-color: unset;
+    border: 1px var.$color-white solid;
+    
+    &:hover {
+      background-color: var.$color-white;
+      color: var.$color-black;
+    }
+  }
+
+}
+
+.btn-mobile-toggle {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  background-color: var.$color-black;
+  display: inline-block;
+  position: absolute;
+  top: 15px;
+  right: 16px;
+  cursor: pointer;
+  outline: none;
+  z-index: 500;
+
+  @include bp.media-breakpoint-up(md) {
+    display: none;
+  }
+}
+
+.btn-mobile-toggle.change {
+  padding: 0;
+}
+
+// btn sizes
+.btn--small {
+  padding: 1rem;
+  font-size: 0.75rem;
+
+  @include bp.media-breakpoint-up(md) {
+    font-size: 1rem;
+  }
+}
+
+.btn--medium {
+
+  @include bp.media-breakpoint-up(md) {
+    padding: 1rem 1.25rem;
+  }
+}
+
+.btn--large {
+  padding: 1rem 1rem;
+  
+  @include bp.media-breakpoint-up(md) {
+    padding: 1.5rem 2.25rem;
+    font-size: 1.25rem;
+  }
+}
+
+
+.btn-bar1,
+.btn-bar2,
+.btn-bar3 {
+  width: 28px;
+  height: 2px;
+  margin: 8px 0;
+  background-color: var.$color-white;
+  transition: transform 0.4s;
+}
+
+
+.change {
+  .btn-bar1, .btn-bar2, .btn-bar3 {
+    width: 40px;
+    margin: 0;
+  }
+
+  .btn-bar1 {
+    -webkit-transform: rotate(-45deg) translate(-1px, 1px);
+    transform: rotate(-45deg) translate(-1px, 1px);
+  }
+
+  .btn-bar2 {
+    opacity: 0;
+  }
+
+  .btn-bar3 {
+    -webkit-transform: rotate(45deg) translate(-1px, -1px);
+    transform: rotate(45deg) translate(-1px, -1px);
+  }
+}
+
+
+.btn-form-close {
+  color: var.$color-black;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  cursor: pointer;
+  z-index: 100;
+}

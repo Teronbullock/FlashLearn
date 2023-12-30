@@ -1,0 +1,32 @@
+extends layout/layout
+block content
+  section.section-page-header.section-page-header--create-set( aria-label='Create Set Page Header. This section contains the title, description, and actions for the set page. The background image is of a person sits on padded chair while using MacBook during daytime. Photo by Christina @ wocintechchat on Unsplash.')
+    .section-page-header__container.container.py-5.position-relative
+      .section-page-header__content-create-set.position-absolute.w-50
+        if view === 'create'
+          h1.section-page-header__title.mb-4.text-white Create Study Set
+        else if view === 'edit'
+          h1.section-page-header__title.mb-4.text-white Edit Study Set
+  .form-container.container.py-5
+    if view === 'create'
+      form.form.form--medium.p-3(data-js="form" method='POST', action='/create-set')
+        .form__body
+          .form__group
+            label.form__label(for='title') Title:
+            input.form__input.mt-2.mb-4.p-2.p-md-3(type='text', placeholder='Enter a Title' name='title' required)
+            label.form__label(for='desc') Description:
+            textarea.form__input.mt-2.mb-4.p-2.p-md-3(data-js="form-textarea" cols="30", rows="2" type='text', placeholder='Add a Description' name='desc')
+        .form__action.d-flex.d-md-block
+          button.btn.btn--large.btn--tertiary.mr-2.mr-md-5(type='submit') Create Set
+          a.btn.btn--outline-black.btn--large(href=`/home/${userID}`) Cancel
+    else if view === 'edit'
+      form.form.form--medium.p-3(data-js="form" method='POST', action=`/set/${set.ID}/edit/`)
+        .form__body
+          .form__group
+            label.form__label(for='title') Title:
+            input.form__input.mt-2.mb-4.p-2.p-md-3(type='text', name='title' value=set.title required)
+            label.form__label(for='desc') Description:
+            textarea.form__input.mt-2.mb-4.p-2.p-md-3(data-js="form-textarea" cols="30", rows="2" name='desc') #{set.description}
+        .form__action.d-flex.d-md-block
+          button.btn.btn--tertiary.btn--large.mr-2.mr-md-5(type='submit') Update
+          a.btn.btn--outline-black.btn--large(href=`/set/${set.ID}`) Cancel

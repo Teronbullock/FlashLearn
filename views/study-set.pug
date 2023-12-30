@@ -1,0 +1,11 @@
+extends layout/layout
+block content
+  .container
+    h2 Card Sets
+    if sets.length
+      .fc-list
+        each set in sets
+          p= set.setName
+    else
+      p You have no sets. Add a set to get started.
+      a.btn.btn--primary(href='/create-set') Add Card

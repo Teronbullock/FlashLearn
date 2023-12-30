@@ -1,0 +1,16 @@
+// img
+
+@use '../1-helpers/breakpoints' as bp;
+
+.img {
+  width: 100%;
+  height: 100%;
+}
+
+.img--hero {
+  
+  @include bp.media-breakpoint-up(xs) {
+    width: 75%;
+    height: 75%;
+  }
+}
