@@ -38,6 +38,10 @@
   padding: 1rem 0;
 }
 
+.nav-mobile__item:last-child {
+  border-bottom: none;
+}
+
 .nav-mobile__link {
   transition: 0.3s;
   text-decoration: none;
