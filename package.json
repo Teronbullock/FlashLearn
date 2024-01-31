@@ -4,11 +4,14 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "serverless dev",
     "sass": "sass --watch ./sass/style.scss:./public/css/style.css",
-    "nodemon": "nodemon app.js",
+    "nodemon": "nodemon app-dev.js",
     "gulp-watch": "gulp watch",
-    "dev": "npm-run-all --parallel  gulp-watch nodemon"
+    "dev": "npm-run-all --parallel  gulp-watch nodemon",
+    "netlify-login": "npx netlify login",
+    "netlify-deploy": "npx netlify deploy",
+    "netlify-open": "npx netlify open"
   },
   "keywords": [],
   "author": "Teron Bullock",
@@ -40,6 +43,7 @@
     "gulp-rename": "^2.0.0",
     "gulp-sass": "^5.1.0",
     "gulp-terser": "^2.1.0",
+    "netlify-cli": "^17.15.6",
     "nodemon": "^2.0.4",
     "npm-run-all": "^4.1.5",
     "sass": "^1.69.5"
