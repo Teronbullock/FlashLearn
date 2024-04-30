@@ -1,5 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const pg = require('pg');
+const pgHstore = require('pg-hstore');
 const db = require('./db/database');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -35,26 +37,26 @@ app.use((req, res, next) => {
   next();
 });
 
-
-
 app.use(bodyParser.urlencoded({ extended: false }));
-
-
 
 app.use('/static', express.static(__dirname + '/public'));
 
-
 app.set('view engine', 'pug');
-
 
 // Routes
 const mainRoutes = require('./routes/main-routes');
+const { col } = require('sequelize');
 app.use('/', mainRoutes);
 
+// disable favicon requests
+app.use('/favicon.ico', (req, res, next) => {
+  // Return a 204 No Content response
+  res.status(204).end();
+});
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-  const err = new Error('Not Found');
+  const err = new Error('Not Found ');
   err.status = 404;
   next(err);
 });

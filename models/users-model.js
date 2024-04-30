@@ -28,7 +28,6 @@ const Users = db.define('fc_users', {
 });
 
 // authenticate input against database documents
-
 Users.authenticate = async (username, password, callback) => {
     try {
       const user = await Users.findOne({ where: {user_name: username} }, { raw: true });
@@ -54,7 +53,6 @@ Users.authenticate = async (username, password, callback) => {
     }
 };
 
-
 // compare password input to password saved in database
 Users.comparePassword = async (password, hash) => {
   try {
@@ -66,7 +64,6 @@ Users.comparePassword = async (password, hash) => {
   }
 };
 
-
 // hash password before saving to database using Hooks
 Users.beforeCreate( async (users, options) => {
   try {
@@ -77,7 +74,6 @@ Users.beforeCreate( async (users, options) => {
     console.log('Error: Encryption did not work', error);
   }
 });
-
 
 // hash password before saving to database using Hooks
 Users.beforeUpdate( async (users, options) => {
@@ -98,8 +94,5 @@ Users.beforeUpdate( async (users, options) => {
     console.log("Error: The Users model table was not synced", error);
   }
 })();
-
-
-
 
 module.exports = Users;

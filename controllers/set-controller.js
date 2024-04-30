@@ -26,7 +26,6 @@ module.exports.getSets = asyncHandler(
       mainClass: 'main-home main-sets',
       cards: setCardCount
     });
-  
   },
   'Error retrieving sets data: ',
   500
@@ -36,8 +35,8 @@ module.exports.getSets = asyncHandler(
 // get create set
 module.exports.getCreateSet = (req, res) => {
   res.render('set-form', {
-     view: 'create',
-     formScript: true, 
+    view: 'create',
+    formScript: true, 
   });
 };
 

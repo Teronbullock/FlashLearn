@@ -1,7 +1,6 @@
 const Card = require('../models/cards-model');
 const { asyncHandler } = require('../lib/utils');
 
-
 // get add card
 module.exports.getAddCard = (req, res) => {
   const { setID } = req.params;
@@ -12,7 +11,6 @@ module.exports.getAddCard = (req, res) => {
     cardScript: true, 
   });
 };
-
 
 // post add card
 module.exports.postAddCard = asyncHandler( 
@@ -28,8 +26,6 @@ module.exports.postAddCard = asyncHandler(
       card_color: req.body['card-color'],
       card_text_color: req.body['card-text-color'],
     };
-
-
 
     if (data.card_term && data.card_definition) {
       const card = await Card.create(data);
@@ -160,7 +156,7 @@ module.exports.getViewCards = asyncHandler(
       backCardText: cards[0]['card_definition'],
       cardColor: cards[0]['card_color'],
       cardTextColor: cards[0]['card_text_color'],
-     };
+    };
 
     res.render('card', templateData);
   },
