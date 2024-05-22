@@ -8,7 +8,7 @@ block content
         .flashcard__inner(data-js='flashcardInner')
           .flashcard--front(style=`background-color: ${cardColor}` data-js='flashcardFront')
             .flashcard__aside
-                h1.flashcard__title.mt-0 Term
+                h1.flashcard__title.flashcard__title--front.mt-0 Term
             .flashcard__body
               .flashcard__header.p-3(style=`border-color: ${cardTextColor}`)
                 a.btn.btn--secondary.btn--large.mb-3(data-js='flashcardFrontFlipBtn') Definition
@@ -24,7 +24,7 @@ block content
                   a.btn.btn--outline-secondary(disabled) >
           .flashcard--back(style=`background-color: ${cardColor}` data-js='flashcardBack')
             .flashcard__aside
-                h1.flashcard__title.mt-0 Definition
+                h1.flashcard__title.flashcard__title--back.mt-0 Definition
             .flashcard__body
               .flashcard__header.p-3(style=`border-color: ${cardTextColor}`)
                 a.btn.btn--secondary.btn--large.my-3(data-js='flashcardBackFlipBtn') Term

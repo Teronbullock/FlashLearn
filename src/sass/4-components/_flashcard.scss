@@ -48,6 +48,7 @@
 
 
 .flashcard--back {
+  z-index: 50;
   transform: rotateY(180deg);
 }
 
@@ -93,8 +94,15 @@
 .flashcard__title {
   color: var.$color-white;
   text-shadow: 1px 1px 0px var.$color-black;
-  z-index: 100;
   font-family: var.$font-header;
+}
+
+.flashcard__title--front {
+  z-index: 25;
+}
+
+.flashcard__title--back {
+  z-index: 100;
 }
 
 .flashcard__header {
