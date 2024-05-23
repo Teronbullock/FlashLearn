@@ -1,7 +1,7 @@
 //  nav
 
-@use '../1-helpers/variables' as var;
-@use '../1-helpers/breakpoints' as bp;
+@use '../../assets/scss/01-helpers/variables' as var;
+@use '../../assets/scss/01-helpers/breakpoints' as bp;
 
 .nav-mobile__item,
 .nav-mobile__link {

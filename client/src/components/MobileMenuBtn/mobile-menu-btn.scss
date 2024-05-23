@@ -1,0 +1,35 @@
+@use '../../assets/scss/01-helpers/variables' as var;
+@use '../../assets/scss/01-helpers/breakpoints' as bp;
+
+.btn-mobile-toggle.change {
+  padding: 0;
+}
+
+.btn-bar1,
+.btn-bar2,
+.btn-bar3 {
+  width: 28px;
+  height: 2px;
+  transition: transform 0.4s;
+}
+
+.change {
+  .btn-bar1, .btn-bar2, .btn-bar3 {
+    width: 40px;
+    margin: 0;
+  }
+
+  .btn-bar1 {
+    -webkit-transform: rotate(-45deg) translate(-1px, 1px);
+    transform: rotate(-45deg) translate(-1px, 1px);
+  }
+
+  .btn-bar2 {
+    opacity: 0;
+  }
+
+  .btn-bar3 {
+    -webkit-transform: rotate(45deg) translate(-1px, -1px);
+    transform: rotate(45deg) translate(-1px, -1px);
+  }
+}
