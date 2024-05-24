@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import './nav.scss'
+import Btn from '../../components/Btn/Btn';
 
 export default function nav() {
   let currentUser = false
@@ -61,10 +62,13 @@ export default function nav() {
           ) : (
             <>
               <li className='nav-desktop__item'>
-                <Link to='/register'>Sign Up</Link>
+              <Link className='nav__list-link' to='/register'>Sign Up</Link>
               </li>
               <li className='nav-desktop__item mr-0'>
-                <Link to='/login'>Login</Link>
+                <Btn
+                  btnURL='/login'
+                  btnClass='btn--primary p-3'
+                >Login</Btn>
               </li>
             </>
           )}

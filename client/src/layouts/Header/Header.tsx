@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
-import Nav from '../Nav/Nav';
 import './header.scss';
-
+import Nav from '../Nav/Nav'; 
 import MobileMenuBtn from '../../components/MobileMenuBtn/MobileMenuBtn';
 
 export default function Header() {

@@ -4,16 +4,6 @@ export default {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    screens: {
-      'i4':       '320px',
-      'xs':       '375px',
-      'sm':       '576px',
-      'md':       '768px',
-      'lg':       '992px',
-      'xl':       '1200px',
-      '2xl':      '1440px',
-      '3xl':      '1920px',
-    },
     colors: {
       'primary':        '#c93916',
       'secondary':      '#ADAAA6',
@@ -28,8 +18,23 @@ export default {
       'light-shade':    '#6A6F6F',
     },
     extend: {
+      screens: {
+        '1xl': '1440px',
+      },
+      container: {
+        center: true,
+        padding: '1rem',
+        screens: {
+          'sm':         '540px',
+          'md':         '720px',
+          'lg':         '960px',
+          'xl':         '1140px',
+          '1xl':        '1320px',
+          '2xl':        '1400px',
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: ["prettier-plugin-tailwindcss"],
 }
 
