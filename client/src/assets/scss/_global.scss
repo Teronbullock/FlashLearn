@@ -108,3 +108,7 @@ main {
   padding-top: 4.37rem;
   background-color: var.$color-light-gray;
 }
+
+main:not(.main--home) {
+  border-top: 3px solid var.$color-dark-shade;
+}

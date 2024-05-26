@@ -1,10 +1,14 @@
-import Hero from '../../layouts/Hero/Hero';
-import SectionFeat from '../../components/Section-Feat/Section-Feat';
+import Hero from '../layouts/Hero/Hero';
+import SectionFeat from '../components/SectionFeat/SectionFeat';
+
+interface HomeProps {
+  
+}
 
 export default function Home() {
 
   return (
-    <main className='main home'>
+    <main className='main main--home'>
       <Hero
         heroAriaLabel='Image of a person sitting on the floor with their back on a couch while using a laptop to study. Photo by Thought Catalog on Unsplash'
         content={{
