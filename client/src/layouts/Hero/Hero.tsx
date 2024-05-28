@@ -1,4 +1,4 @@
-import './hero.scss'
+import './Hero.scss'
 import Btn from '../../components/Btn/Btn';
 
 interface HeroProps {

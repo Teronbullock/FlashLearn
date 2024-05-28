@@ -1,4 +1,4 @@
-import './mobile-menu-btn.scss';
+import './MobileMenuBtn.scss';
 
 export default function MobileMenuBtn(): JSX.Element {
   return (

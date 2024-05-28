@@ -1,0 +1,33 @@
+// form
+
+@use '../../assets/scss/01-helpers/variables' as var;
+@use '../../assets/scss/01-helpers/breakpoints' as bp;
+
+.form-container {
+  min-height: calc(90vh - 10rem);
+
+  @include bp.media-breakpoint-up(md) {
+    min-height: calc(100vh - 10rem);
+  }
+}
+
+.form--position-absolute {
+  right: 8px;
+  left: 8px;
+  top: 16rem;
+
+  @include bp.media-breakpoint-up(md) {
+    right: 0;
+    left: 0;
+    top: 35rem;
+  }
+}
+
+.form__input--textarea {
+  text-align: left;
+  padding: 1rem;
+}
+
+.form__color-input {
+  width: 70px;
+}

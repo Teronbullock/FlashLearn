@@ -1,6 +1,6 @@
 import { Children } from 'react';
 import { Link } from 'react-router-dom'
-import './btn.scss';
+import './Btn.scss';
 
 interface BtnProps {
   btnClass?: string;

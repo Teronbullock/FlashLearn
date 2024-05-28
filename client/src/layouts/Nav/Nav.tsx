@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import './nav.scss'
+import './Nav.scss'
 import Btn from '../../components/Btn/Btn';
 
 export default function nav() {

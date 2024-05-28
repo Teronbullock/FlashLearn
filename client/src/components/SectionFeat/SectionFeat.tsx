@@ -1,4 +1,4 @@
-import './section-feat.scss';
+import './SectionFeat.scss';
 
 interface sectionFeatProps {
   img: {
