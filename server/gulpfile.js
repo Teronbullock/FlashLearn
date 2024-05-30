@@ -1,9 +1,12 @@
-const { src, dest, series, watch, parallel } = require('gulp');
-const terser = require('gulp-terser');
-const rename = require('gulp-rename');
-const sass = require('gulp-sass')(require('sass'));
-const cleanCSS = require('gulp-clean-css');
+import gulp from 'gulp';
+import terser from 'gulp-terser';
+import rename from 'gulp-rename';
+import gulpSass from 'gulp-sass';
+import * as sassCompiler from 'sass';
+import cleanCSS from 'gulp-clean-css';
 
+const sass = gulpSass(sassCompiler);
+const { src, dest, series, watch, parallel } = gulp;
 
 function minifyJS() {
   return src('src/js/*.js')
@@ -23,14 +26,15 @@ function compileSass() {
 
 function watchAll() {
   watch('src/js/*.js', minifyJS);
-  watch('src/sass/**/*.scss', compileSass);
+  // watch('src/sass/**/*.scss', compileSass);
 }
 
 
 
 
 // Export Gulp tasks
-exports.default = series(minifyJS, compileSass, watchAll);
-exports.watch = series(minifyJS, compileSass, watchAll);
-exports.scripts = minifyJS;
-exports.styles = compileSass;
+export default series(minifyJS, compileSass, watchAll);
+// exports.watch = series(minifyJS, compileSass, watchAll);
+export const runWatch = series(minifyJS, watchAll);
+export const getScripts = minifyJS;
+export const getStyles = compileSass;

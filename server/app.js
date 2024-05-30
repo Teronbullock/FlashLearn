@@ -1,15 +1,22 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const pg = require('pg');
-const pgHstore = require('pg-hstore');
-const db = require('./db/database');
-const session = require('express-session');
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
-const methodOverride = require('method-override');
-const helmet = require('helmet');
-const compression = require('compression');
+import express from 'express';
+import bodyParser from 'body-parser';
+import pg from 'pg';
+import pgHstore from 'pg-hstore';
+import db from './db/database.js';
+import session from 'express-session';
+import connectSessionSequelize from 'connect-session-sequelize';
+import methodOverride from 'method-override';
+import helmet from 'helmet';
+import compression from 'compression';
+// import { dirname } from 'path';
+import dotenv from 'dotenv';
 
-require('dotenv').config();
+
+const SequelizeStore = connectSessionSequelize(session.Store);
+// const __dirname = dirname();
+
+// Load environment variables
+dotenv.config();
 
 const app = express();
 const myStore = new SequelizeStore({
@@ -39,13 +46,13 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use('/static', express.static(__dirname + '/public'));
+// app.use('/static', express.static(__dirname + '/public'));
 
-app.set('view engine', 'pug');
+// app.set('view engine', 'pug');
 
 // Routes
-const mainRoutes = require('./routes/main-routes');
-const { col } = require('sequelize');
+import mainRoutes from './routes/main-routes.js';
+import { col } from 'sequelize';
 app.use('/', mainRoutes);
 
 // disable favicon requests

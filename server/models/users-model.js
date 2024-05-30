@@ -1,6 +1,6 @@
-const { DataTypes } = require('sequelize');
-const db = require('../db/database');
-const bcrypt = require('bcrypt');
+import { DataTypes } from 'sequelize';
+import db from '../db/database.js';
+import bcrypt from 'bcrypt';
 
 const Users = db.define('fc_users', {
   ID: {
@@ -95,4 +95,4 @@ Users.beforeUpdate( async (users, options) => {
   }
 })();
 
-module.exports = Users;
+export default Users;

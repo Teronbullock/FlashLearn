@@ -1,6 +1,7 @@
 import './SectionForm.scss';
 import Btn from '../../components/Btn/Btn';
 import BtnClose from '../../components/BtnClose/BtnClose';
+import axios from 'axios';
 
 interface SectionFormProps {
   formType: 'reg' | 'login' | 'profile';
@@ -10,7 +11,7 @@ interface SectionFormProps {
 export default function SectionForm({ formType }:SectionFormProps): JSX.Element {
   const userRegistered = false;
   let sectionClass = '';
-  let formAction = '';
+  let formAction = '' ;
   let userID = '';
 
   if (userRegistered) {
@@ -23,6 +24,24 @@ export default function SectionForm({ formType }:SectionFormProps): JSX.Element 
     formAction = '/login';
   } else if (formType === 'profile') {
     formAction = `${userID}/profile/?_method=PUT`;
+  }
+
+  // interface FormObject {
+  //   user_name: string;
+  //   user_email: string;
+  //   user_pass: string;
+  //   user_confirm_pass: string;
+  // }
+
+  async function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const formObject = Object.fromEntries(formData.entries());
+    console.log(formData.entries());
+
+    const res = axios.post('/api/register', formObject);
+    console.log(res);
   }
 
   return (
@@ -47,7 +66,7 @@ export default function SectionForm({ formType }:SectionFormProps): JSX.Element 
           </div>
         )}
         {(formType === 'reg' || formType === 'login' || formType === 'profile') && (
-          <form className='form__body mb-8' method='POST' action={formAction}>
+          <form className='form__body mb-8' action={formAction} onSubmit={handleFormSubmit}>
             {formType === 'reg' ? (
               <>
                 <div className='form__group w-full mb-4'>

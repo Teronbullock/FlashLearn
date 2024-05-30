@@ -1,14 +1,14 @@
-const { asyncHandler } = require('../lib/utils');
-const Users = require('../models/users-model');
+import { asyncHandler } from '../lib/utils.js';
+import Users from '../models/users-model.js';
 
 
 // get user register
-module.exports.getUserRegister = (req, res, next) => {
-  res.render('register', { route: 'register' });
+export const getUserRegister = (req, res, next) => {
+  res.json({ message: `User register route ${req}` });
 };
 
 // post user register
-module.exports.postUserRegister = asyncHandler(
+export const postUserRegister = asyncHandler(
   async (req, res) => {
     const formData = {
       user_name: req.body.user_name,
@@ -46,13 +46,13 @@ module.exports.postUserRegister = asyncHandler(
 );
 
 // get user login
-module.exports.getUserLogin = (req, res, next) => {
+export const getUserLogin = (req, res, next) => {
   res.render('login');
 };
 
 
 // post user login
-module.exports.postUserLogin = asyncHandler( 
+export const postUserLogin = asyncHandler( 
   async (req, res, next) => {
 
     if (req.body.user_name && req.body.user_pass) {
@@ -94,7 +94,7 @@ module.exports.postUserLogin = asyncHandler(
 
 
 // get user logout
-module.exports.getUserLogOut = (req, res, next) => {
+export const getUserLogOut = (req, res, next) => {
   if (req.session) {
     // delete session obj
     req.session.destroy( (err) => {
@@ -110,7 +110,7 @@ module.exports.getUserLogOut = (req, res, next) => {
 };
 
 // get user home redirect
-module.exports.getUserHomeRedirect = asyncHandler(
+export const getUserHomeRedirect = asyncHandler(
   async (req, res, next) => {
 
     res.redirect(`/home/${req.session.userID}`);
@@ -120,7 +120,7 @@ module.exports.getUserHomeRedirect = asyncHandler(
 );
 
 // get user home
-module.exports.getUserHome = asyncHandler(
+export const getUserHome = asyncHandler(
   async (req, res, next) => {
     res.render('home', { route: 'home' });
   },
@@ -129,7 +129,7 @@ module.exports.getUserHome = asyncHandler(
 );
 
 // get user profile
-module.exports.getUserProfile = asyncHandler(
+export const getUserProfile = asyncHandler(
   async (req, res, next) => {
 
     const user = await Users.findByPk(req.params.userID);
@@ -146,7 +146,7 @@ module.exports.getUserProfile = asyncHandler(
 );
 
 // put user profile
-module.exports.putEditProfile = asyncHandler(
+export const putEditProfile = asyncHandler(
   async (req, res, next) => {
     const { email, old_password, password, confirm_password  } = req.body;
     const userID = req.params.userID;
