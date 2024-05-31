@@ -9,7 +9,7 @@ export const getUserRegister = (req, res, next) => {
 
 // post user register
 export const postUserRegister = asyncHandler(
-  async (req, res) => {
+  async (req, res, next) => {
     const formData = {
       user_name: req.body.user_name,
       user_email: req.body.user_email,
@@ -17,10 +17,7 @@ export const postUserRegister = asyncHandler(
     };
 
     if (
-      formData.user_name &&
-      formData.user_email &&
-      formData.user_pass &&
-      req.body.user_confirm_pass
+      Object.values(formData).every(value => value !== null && value !== undefined && value !== '')
     ) {
       // confirm that user typed same password twice
       if (formData.user_pass !== req.body.user_confirm_pass) {  
@@ -30,10 +27,9 @@ export const postUserRegister = asyncHandler(
       }
 
       // use schema method to insert document into PSQL 
-        await Users.create(formData);
+        // await Users.create(formData);
 
-        res.render('register', { userRegistered: 'yes' });
-
+        res.json({message: 'User registered successfully.'});
         console.log('User registered successfully.');
         return;
 
@@ -54,7 +50,7 @@ export const getUserLogin = (req, res, next) => {
 // post user login
 export const postUserLogin = asyncHandler( 
   async (req, res, next) => {
-
+console.log('req.body', req.body);
     if (req.body.user_name && req.body.user_pass) {
       Users.authenticate(
         req.body.user_name,
@@ -74,7 +70,7 @@ export const postUserLogin = asyncHandler(
                 return next(err);
               }
               console.log('User logged in successfully.');
-              return res.redirect(`/home/${user.ID}`);
+              return res.json({url: `/home/${user.ID}`});
             });
             
           }

@@ -37,9 +37,9 @@ import {
 //   deleteSet
 // } = require('../controllers/set-controller');
 
-
 // GET / route
-export default router.get('/', (req, res) => {
+const mainRoutes = router.get('/', (req, res) => {
+  console.log('main-routes.js');
   // res.render('index', { bodyClass: 'index' });
   res.send('Hello World');
 });
@@ -73,4 +73,4 @@ router.get('/logout', getUserLogOut);
 // // cards route
 // router.get('/set/:setID/cards', midCheckUsersAuth, getViewCards);
 
-// export default mainRoutes;
+export default mainRoutes;

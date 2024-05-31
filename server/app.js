@@ -9,11 +9,13 @@ import methodOverride from 'method-override';
 import helmet from 'helmet';
 import compression from 'compression';
 // import { dirname } from 'path';
+// import https from 'https';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 
 const SequelizeStore = connectSessionSequelize(session.Store);
-// const __dirname = dirname();
+
 
 // Load environment variables
 dotenv.config();
@@ -23,6 +25,7 @@ const myStore = new SequelizeStore({
   db: db,
 });
 
+app.use(cors());
 app.use(helmet());
 app.use(compression());
 app.use(methodOverride('_method'));
@@ -44,15 +47,12 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
-// app.use('/static', express.static(__dirname + '/public'));
-
-// app.set('view engine', 'pug');
 
 // Routes
 import mainRoutes from './routes/main-routes.js';
-import { col } from 'sequelize';
+// import { col } from 'sequelize';
 app.use('/', mainRoutes);
 
 // disable favicon requests
