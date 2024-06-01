@@ -8,8 +8,9 @@ import connectSessionSequelize from 'connect-session-sequelize';
 import methodOverride from 'method-override';
 import helmet from 'helmet';
 import compression from 'compression';
-// import { dirname } from 'path';
-// import https from 'https';
+import path from 'path';
+import https from 'https';
+import fs from 'fs';
 import dotenv from 'dotenv';
 import cors from 'cors';
 
@@ -102,7 +103,15 @@ app.use((err, req, res, next) => {
 })();
 
 const port = process.env.PORT || 3000;
+const currentWorkingDirectory = process.cwd();
+const keyPath = path.resolve(currentWorkingDirectory, 'certs', 'key.pem');
+const certPath = path.resolve(currentWorkingDirectory, 'certs', 'cert.pem');
 
-app.listen(port, () => {
-  console.log(`Express app listening on http://localhost:${port}`);
+const server = https.createServer(
+  {
+    key: fs.readFileSync(keyPath),
+    cert: fs.readFileSync(certPath),
+  }, app
+).listen(port, () => {
+  console.log(`Express app listening on https://localhost:${port}`);
 });

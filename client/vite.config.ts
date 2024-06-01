@@ -14,7 +14,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:3000',
+        target: 'https://localhost:3000',
         secure: false,
         rewrite: (path) => path.replace(/^\/api/, ''),// Optional: Removes '/api' from the path before forwarding
       }

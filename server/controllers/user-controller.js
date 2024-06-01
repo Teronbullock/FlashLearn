@@ -1,5 +1,9 @@
+import pkg from 'pg/lib/defaults.js';
 import { asyncHandler } from '../lib/utils.js';
 import Users from '../models/users-model.js';
+import jwt from 'jsonwebtoken';
+
+const { user } = pkg;
 
 
 // get user register
@@ -26,12 +30,36 @@ export const postUserRegister = asyncHandler(
         return next(err);
       }
 
-      // use schema method to insert document into PSQL 
-        // await Users.create(formData);
+      ( async () => {
+        // use schema method to insert document into PSQL 
+          await Users.create(formData);
 
-        res.json({message: 'User registered successfully.'});
-        console.log('User registered successfully.');
-        return;
+        // create a token
+        let token;
+        try {
+          token = jwt.sign({ 
+            userID: Users.ID,
+            userName: Users.user_name,
+            }, 
+            process.env.JWT_SECRET,
+            { expiresIn: '1h' }
+          );
+        } catch (error) {
+          console.log('Error creating token: ', error);
+          return next(error);
+        }
+  
+          res.status(200).json({
+            message: 'User registered successfully.',
+            token: token,
+            userID: Users.ID,
+            userName: Users.user_name,
+          });
+
+          console.log('User registered successfully.');
+          return;
+
+      })();
 
     } else {
       let err = new Error('All fields required.');
@@ -43,14 +71,14 @@ export const postUserRegister = asyncHandler(
 
 // get user login
 export const getUserLogin = (req, res, next) => {
-  res.render('login');
+  // res.render('login');
 };
 
 
 // post user login
 export const postUserLogin = asyncHandler( 
   async (req, res, next) => {
-console.log('req.body', req.body);
+console.log('req.body', req.body.user_name, req.body.user_pass);
     if (req.body.user_name && req.body.user_pass) {
       Users.authenticate(
         req.body.user_name,

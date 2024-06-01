@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './SectionForm.scss';
 import Btn from '../../components/Btn/Btn';
 import BtnClose from '../../components/BtnClose/BtnClose';
@@ -10,6 +11,7 @@ interface SectionFormProps {
 
 
 export default function SectionForm({ formType }:SectionFormProps): JSX.Element {
+  const navigate = useNavigate();
   const userRegistered = false;
   let sectionClass = '';
   let userID = '';
@@ -55,6 +57,13 @@ export default function SectionForm({ formType }:SectionFormProps): JSX.Element 
       case 'reg':
         apiUrl = 'api/register';
         formData = registerFormData;
+
+        if (registerFormData.user_pass !== registerFormData.user_confirm_pass) {
+          console.log('passwords do not match');
+          alert('Passwords do not match');
+          return;
+        }
+
         console.log('register', formData);
         break;
       case 'login':
@@ -71,7 +80,14 @@ export default function SectionForm({ formType }:SectionFormProps): JSX.Element 
 
     try {
       const res = await axios.post(apiUrl, formData);
-      
+      if (formType === 'login' && res.data) {
+        console.log(res.data, 'success');
+        navigate('/dashboard');
+        
+      } else if (formType === 'reg' && res.data) {
+        console.log(res.data, 'success');
+        alert('Registration successful');
+      }
       
       console.log(res.data);
     } catch (error) {
